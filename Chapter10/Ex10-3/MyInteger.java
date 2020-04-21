@@ -54,20 +54,47 @@ public class MyInteger {
 		else
 			return false;
 	}
+	// Static boolean return methods
+	public static boolean isEven( int val ) {
+		if ( val % 2 == 0)
+			return true;
+		else
+			return false;
+	}
+	public static boolean isOdd( int val ) {
+		if ( val % 2 != 0 ) 
+			return true;
+		else
+			return false;
+	}
+	public static boolean isPrime( int val ) {
+		int prime = 0;
+		for ( int i = 2; i <= val / 2; i++ ) {
+			if ( val % i == 0 ) {
+				prime = 0;
+				break;
+			} else {
+				prime = 1;
+			}
+		} if ( prime == 0 )
+			return false;
+		else
+			return true;
+	}
 	// Return methods with object as argument
-	public boolean isEven( MyInteger obj ) {
+	public static boolean isEven( MyInteger obj ) {
 		if ( obj.value % 2 == 0)
 			return true;
 		else
 			return false;
 		}
-	public boolean isOdd( MyInteger obj ) {
+	public static boolean isOdd( MyInteger obj ) {
 		if ( obj.value % 2 != 0 ) 
 			return true;
 		else
 			return false;
 	}
-	public boolean isPrime( MyInteger obj ) {
+	public static boolean isPrime( MyInteger obj ) {
 		int prime = 0;
 		for ( int i = 2; i <= obj.value / 2; i++ ) {
 			if ( obj.value % i == 0 ) {
@@ -88,8 +115,6 @@ public class MyInteger {
 			return false;
 	}
 	// Parsing Methods
-	// Note: these should be called as MyInteger.parseInt() 
-	// and not child.ParseInt() since they are static.
 	public static int parseInt( String data ) {
 		return Integer.parseInt( data );
 	}
