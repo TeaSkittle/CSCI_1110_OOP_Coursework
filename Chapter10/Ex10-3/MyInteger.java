@@ -7,9 +7,6 @@
 
 package exercise;
 
-import java.lang.Integer;
-import java.lang.String;
-
 public class MyInteger {
 	private int value;
 	// Constructor
@@ -115,11 +112,25 @@ public class MyInteger {
 			return false;
 	}
 	// Parsing Methods
-	public static int parseInt( String data ) {
-		return Integer.parseInt( data );
+	public static int parseInt( String str ) {
+		char[] data = str.toCharArray();
+		int result = 0;
+		int size = data.length;
+		for( int i = 0; i < size; i++ ) {
+			int digit = data[ i ] - '0';
+			result = result * 10;
+			result = result + digit;
+		}
+		return result;
 	}
 	public static int parseInt( char[] data ) {
-		String dataString = String.copyValueOf( data );
-		return Integer.parseInt( dataString );
+		int result = 0;
+		int size = data.length;
+		for( int i = 0; i < size; i++ ) {
+			int digit = data[ i ] - '0';
+			result = result * 10;
+			result = result + digit;
+		}
+		return result;
 	}
 }
