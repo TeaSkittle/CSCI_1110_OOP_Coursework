@@ -1,6 +1,8 @@
 // Author: Travis Dowd
 // Date: 4-2-2020
-// Chapter 9, exercise 9-7
+// Chapter 10, exercise 10-7
+
+package exercise;
 
 import java.util.Date;
 
