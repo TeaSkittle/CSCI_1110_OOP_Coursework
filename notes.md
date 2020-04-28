@@ -28,7 +28,7 @@ class B extends A {
 * If wanting to override the orignal method from the parent class, remember to use the __@Override__ annotation. This is to avoid a compiler warning (not neeeded but VERY good practice). Example:
 ```java
 class A {
-	String color = 'white";
+	String color = "white";
 }
 
 class B extends A {
@@ -36,4 +36,6 @@ class B extends A {
 	String color = "black";
 }
 ```
+
+## Polymorphism
 
