@@ -3,9 +3,8 @@ Quote from textbook:
 > The three pillars of object-oriented programming are encapsulation, inheritance, and polymorphism.
 
 # Encapsulation
-* The details of implementation are _encapsulated_ and hidden from the user. For example, you can create a Circle object and find the area of the circle without knowing how the area is computed.
-* You can define how ecapsulated something is using different keywords for their visibility. From most to least visible:
-1. Public = can be accessed from the same class, same package, a subclass in a different package, and a different package.
+The details of implementation are _encapsulated_ and hidden from the user. For example, you can create a Circle object and find the area of the circle without knowing how the area is computed. You can define how ecapsulated something is using different keywords for their visibility. From most to least visible:  
+1. public = can be accessed from the same class, same package, a subclass in a different package, and a different package.
 2. protected = can be accessed from the same class, same package, and a subclass in a different package.
 3. default(no modifier) = can be accessed from the same class, and the same package.
 4. private = can only be accessed from the same class.
