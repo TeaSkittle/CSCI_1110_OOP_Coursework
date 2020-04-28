@@ -8,7 +8,9 @@ The details of implementation are _encapsulated_ and hidden from the user. For e
 2. protected = can be accessed from the same class, same package, and a subclass in a different package.
 3. default(no modifier) = can be accessed from the same class, and the same package.
 4. private = can only be accessed from the same class.
-5. final = a final class cannot be a parent class, a final method cannot be overridden by a subclass. Good examples of these are the: Math, String, and StringBuilder classes. These are constant and there is no real reason to alter them with another class or method. 
+
+### Final
+A final class cannot be a parent class, a final method cannot be overridden by a subclass. Good examples of these are the: Math, String, and StringBuilder classes. These are constant and there is no real reason to alter them with another class or method. 
 
 ### Static
 * static is different than the above keywords, it means that it belongs to the class instead of a specific instance. By default all methods are non-static unless the static keyword is used.
