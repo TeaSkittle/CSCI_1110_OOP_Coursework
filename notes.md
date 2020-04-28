@@ -101,7 +101,10 @@ class Dog extends Animal {
 public class A {}
 public class A extends Object{}
 ```
-* This method tests whether two objects are equal, use the equals method from the Object class.. Example: `object1.equals(object2);'.
+* This method tests whether two objects are equal, use the equals method from the Object class. Example: 
+```java
+object1.equals(object2);
+```
 * ArrayList is known as a generic class with a generic type _E_. An ArrayList stores an unlimited number of objects. Example:
 ```java
 public class Garage {
