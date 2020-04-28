@@ -111,14 +111,14 @@ public class Garage {
 	// Create ArrayList of objects (cars)
 	ArrayList<String> cars = new ArrayList<String>();
 	
-	// Add cars to ArrayList
-    cars.add("Volvo");
-    cars.add("BMW");
-    cars.add("Ford");
-    cars.add("Mazda");
+// Add cars to ArrayList
+	cars.add("Volvo");
+	cars.add("BMW");
+	cars.add("Ford");
+	cars.add("Mazda");
 	
 	// Print out ArrayList
-    System.out.println(cars);
+	System.out.println(cars);
   }
 }
 ```
