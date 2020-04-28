@@ -14,14 +14,20 @@ Quote from textbook:
 ### Static
 * static is different than the above keywords, it means that it belongs to the class instead of a specific instance. By default all methods are non-static unless the static keyword is used.
 * static methods and variables are more memory effecient (minor optimization but worth noting).
+* static variables are sort of like global vraibles in other languages
 * When calling a static method, must use the class name, not the method name. Example:
 ```java
 class MyClass{
+	// static method
 	public static A() {}	
+	
+	// static varaible
+	public static String message = "Hello!";
 }
 
-// calling A
+// Calling static methods & variables
 MyClass.A();
+System.out.println( MyClass.message );
 ```
 
 ## Inheritance
