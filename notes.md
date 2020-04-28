@@ -1,4 +1,6 @@
 # Java OOP Notes
+Quote from textbook:
+> The three pillars of object-oriented programming are encapsulation, inheritance, and polymorphism.
 
 ## Inheritance
 * Basically use a superclass as a parent to other classes as a basis to expand on. The child class can use maethods from the parent class, this reduces the need to rewrite as much code.
@@ -34,6 +36,7 @@ class A {
 class B extends A {
 	@Override
 	String color = "black";
+	System.out.println( color ); // prints "black"
 }
 ```
 
