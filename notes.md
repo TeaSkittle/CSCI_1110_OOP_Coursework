@@ -47,7 +47,7 @@ class B extends A {
 * Use the __super__ keyword to access data from parent classs, example:
 ```java
 class A {
-	String color = 'white";
+	String color = "white";
 }
 
 class B extends A {
