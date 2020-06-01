@@ -1,8 +1,11 @@
 #!/usr/bin/sh
 # (c) Travis Dowd
-# This is to pull eclpise files into git folder for school
-# Usage: eclipse_pull.sh chapter project_name
-#    ex: sh eclipse_pull.sh 11 Ex11_3
+#
+# copy eclipse project files into git folder from school macOS machines, and place them into git directory
+#
+# Usage: epull.sh chapter project_name
+#    ex: sh epull.sh 11 Ex11_3
+#
 
 echo "[+] Pulling java files from eclipse folder.."
 if [ ! -f "/Users/student/Desktop/CSCI_1110_OOP_Coursework/Chapter$1/$2/" ]; then
