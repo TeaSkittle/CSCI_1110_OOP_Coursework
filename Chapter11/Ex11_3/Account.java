@@ -1,6 +1,7 @@
 // Author: Travis Dowd
 // Date: 4-2-2020
-// Chapter 9, exercise 9-7
+// Chapter 9, exercise 9-7 ( used for 11_3 )
+package Ex11_3;
 
 import java.util.Date;
 
