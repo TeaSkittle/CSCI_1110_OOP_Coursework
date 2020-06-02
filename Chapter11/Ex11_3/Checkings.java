@@ -1,5 +1,5 @@
 // (c) Travis Dowd
-// Date: 6-1-2020
+// (d) 6-1-2020
 
 package Ex11_3;
 

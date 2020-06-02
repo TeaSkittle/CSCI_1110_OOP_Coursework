@@ -1,5 +1,5 @@
-// Author: Travis Dowd
-// Date: 4-2-2020
+// (c) Travis Dowd
+// (d) 4-2-2020 ( modified on 6-2-2020 )
 // Chapter 9, exercise 9-7 ( used for 11_3 )
 package Ex11_3;
 
@@ -55,5 +55,10 @@ public class Account {
 	public double deposit( double amount ) {
 		balance += amount;
 		return balance;
+	}
+	@Override
+	public String toString() {
+		return "Account ID: " + getId() + "\nBalance: " 
+				+ getBalance() + "\nCreated on: " + getDateCreated() + "\n"; 
 	}
 }

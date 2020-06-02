@@ -10,9 +10,9 @@
 echo "[+] Pulling java files from eclipse folder.."
 if [ ! -f "/Users/student/Desktop/CSCI_1110_OOP_Coursework/Chapter$1/$2/" ]; then
     mkdir "/Users/student/Desktop/CSCI_1110_OOP_Coursework/Chapter$1/$2/"
-    cp "/Users/student/Documents/eclipse-workspace/$2/$2/*java" "/Users/student/Desktop/CSCI_1110_OOP_Coursework/Chapter$1/$2/"
+    cp -r "/Users/student/Documents/eclipse-workspace/$2/$2/" "/Users/student/Desktop/CSCI_1110_OOP_Coursework/Chapter$1/$2/"
 else
-    cp "/Users/student/Documents/eclipse-workspace/$2/$2/*java" "/Users/student/Desktop/CSCI_1110_OOP_Coursework/Chapter$1/$2/"
+    cp -r "/Users/student/Documents/eclipse-workspace/$2/$2/" "/Users/student/Desktop/CSCI_1110_OOP_Coursework/Chapter$1/$2/"
 fi
 echo "[+] File pull complete"
 echo "[+] Moving to project folder.."
