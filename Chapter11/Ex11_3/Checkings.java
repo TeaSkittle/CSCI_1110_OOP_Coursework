@@ -4,25 +4,25 @@
 package Ex11_3;
 
 public class Checkings extends Account {
-	private double overdraft = -100;
-	// remember to get date from parent class
-	public Checkings( double overdraft ) {
+	private double overdraft;
+	public Checkings( double o ) {
 		super();
-		this.dateCreated = getDateCreated();
-		this.overdraft = overdraft;
+		this.overdraft = o;
 	}
 	public Checkings( int id, double balance, double overdraft ) {
 		super( id, balance );
-		this.dateCreated = getDateCreated();
 		this.overdraft = overdraft;
 	}
 	@Override
 	public double withdraw( double amount ) {
 		double total = getBalance();
-		if  (( total - amount ) < overdraft ) {
+		if ( amount < ( total + overdraft ) ) {
 			total -= amount;
 			setBalance( total );
 			return total;
 		} else { return 0; }
+	}
+	public double getOverdraft() {
+		return overdraft;
 	}
 }
