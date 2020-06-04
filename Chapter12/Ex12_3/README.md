@@ -1,10 +1,6 @@
 # Exercise 12-3 Planning
 
----
-
 ## Overview
-
-
 
 * declare array of 100 random int:  
 ```Java
