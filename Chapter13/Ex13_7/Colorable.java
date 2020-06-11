@@ -6,7 +6,5 @@
 package Ex13_7;
 
 public interface Colorable {
-	public void howToColor() {
-		System.out.println( "Color all three sides" );
-	}
+	public abstract void howToColor();
 }

@@ -41,4 +41,8 @@ public class Triangle extends GeometricObject implements Colorable {
 		return "\nArea: " + getArea() + "\nPermimeter: " + getPerimeter() + 
 		"\nColor: " + getColor() + "\nFilled: " + isFilled();
 	}
+	@Override
+	public void howToColor() {
+		System.out.println( "Color all three sides" );
+	}
 }
