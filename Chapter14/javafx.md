@@ -1,6 +1,6 @@
 # JavaFX Notes
 
-> JavaFX replaces the outdated wwing architecture whcih replaced AWT ( Abstract Windows Toolkit ).
+> JavaFX replaces the outdated Swing architecture which replaced AWT ( Abstract Windows Toolkit )
 
 ## Structure 
 
