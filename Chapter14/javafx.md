@@ -1,8 +1,6 @@
 # JavaFX Notes
 
----
-
-> JavaFX replaces the otudated wwing architecture whcih replaced AWT ( Abstract Windows Toolkit ).
+> JavaFX replaces the outdated wwing architecture whcih replaced AWT ( Abstract Windows Toolkit ).
 
 ## Structure 
 
@@ -36,7 +34,7 @@ public class TestClass extends Application {
 * Stage - a window object. The JVM automatically creates one called the **primary stage** when app is launched. To show the stage: `primaryStage.show();`
 * Example using all the above concepts:  
 ```Java
-import javafx.*;
+import javafx.*; // This works but is not preferred
 
 public class MyJavaFX extends Application {
   @Override
@@ -55,3 +53,19 @@ public class MyJavaFX extends Application {
 * Layout is as such:  
 ![](layout.png)
 
+## Panes
+
+> Panes are use to hold nodes, nodes can be shapes, images views, UI controls, and other panes.
+
+* The layout with a pane & nodes:  
+![](pane.png)  
+
+* You place nodes inside a pane and then places the plane into a cense ( like the above layout )
+* Here is an example of using a pane:  
+```Java
+StackPane pane = new StackPane();
+pane.getChildren().add( new BUTTON( "Ok" ));
+Scene scene = new Scene( pane, 200, 500 ); // measured in pixels
+```
+* The x-coordinate increases from left to right and the y-coordinate increases downward in the Java coordinate system. For a visual explanation:  
+![](cord.png)
