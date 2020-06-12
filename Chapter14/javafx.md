@@ -9,8 +9,8 @@
 * Make sure to import JavaFX: `import javafx.*`
 * Every JavaFX program is defined in a class that extends javafx.application.Application.
 * The launch method is a static method for launching a stand-alone JavaFX applications.
-* After the JavaFX app is launched, the JVM goes to the start method( which should be overriden )
-* An exmaple showing all of the above:  
+* After the JavaFX app is launched, the JVM goes to the start method( which should have @Override )
+* An example showing all of the above:  
 ```Java
 import javafx.*;
 
@@ -30,6 +30,7 @@ public class TestClass extends Application {
 1. Button
 2. Scene
 3. Stage
+4. Pane ( see section on panes below )
 
 * Button - self explanatory, it's a button. Constructed as: `Button btOK = new Button( "Ok" );`
 * Scene - An object that conatains various nodes on the screen. Constructor is: `Scene( node, width, height )`
@@ -40,15 +41,15 @@ import javafx.*; // This works but is not preferred
 
 public class MyJavaFX extends Application {
   @Override
-  public void start(Stage primaryStage) {
-    Button btOK = new Button("OK");
-    Scene scene = new Scene(btOK, 200, 250);
-    primaryStage.setTitle("MyJavaFX"); // Set the stage title
-    primaryStage.setScene(scene); // Place the scene in the stage
+  public void start( Stage primaryStage ) {
+    Button btOK = new Button( "OK" );
+    Scene scene = new Scene( btOK, 200, 250 );
+    primaryStage.setTitle( "MyJavaFX" ); // Set the stage title
+    primaryStage.setScene( scene ); // Place the scene in the stage
     primaryStage.show(); // Display the stage
   }
-  public static void main(String[] args) { 
-    Application.launch(args); 
+  public static void main( String[] args ) { 
+    Application.launch( args ); 
   }
 }
 ```
@@ -57,7 +58,7 @@ public class MyJavaFX extends Application {
 
 ### Panes
 
-> Panes are use to hold nodes, nodes can be shapes, images views, UI controls, and other panes.
+> Panes are use to hold nodes which can be: shapes, images views, UI controls, and other panes.
 
 * The layout with a pane & nodes:  
 ![](pane.png)  
@@ -77,7 +78,7 @@ Scene scene = new Scene( pane, 200, 500 ); // measured in pixels
 ![](cord.png)
 
 * To place an object in the center of a pane, use: width/2 & height/2
-* An HBox is a plane that places all nodes in one row
+* An HBox is a plane that places all nodes in one row *( Think Horizontal Box )*
 
 ### Property Binding
 
@@ -89,7 +90,7 @@ Pane pane = new Pane();
 Circle circle = new Circle();
 circle.centerXProperty().bind( pane.widthProperty().divide ( 2 ));
 circle.centerYProperty().bind( pane.heightProperty().divide ( 2 ));
-pane.getChildren().add( cirlce );
+pane.getChildren().add( circle );
 ```
 
 ## Styling :sunglasses:
@@ -101,7 +102,7 @@ ___
 > JavaFX style properties are similar to cascading style sheets (CSS). So, the style properties in JavaFX are called JavaFX CSS
 
 * The syntax for setting a style is: `styleName:value`
-* A more conrete example:  
+* A more concrete example:  
 ```Java
 circle.setStyle( "-fx-stroke: block; -fx-fill:red" );
 // The above is equivalent to the following two lines
