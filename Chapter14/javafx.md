@@ -79,9 +79,6 @@ Scene scene = new Scene( pane, 200, 500 ); // measured in pixels
 
 > These get kind of complicated, so refer to the text book on these, as the notes would be far to extensive if I included them
 
-- Visual cheat sheet for panes:  
-![]( pane.png )
-
 ### Coordinates
 
 * The x-coordinate increases from left to right and the y-coordinate increases downward in the Java coordinate system. For a visual explanation:  
