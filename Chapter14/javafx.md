@@ -71,6 +71,20 @@ pane.getChildren().add( new Button( "Ok" ));
 Scene scene = new Scene( pane, 200, 500 ); // measured in pixels
 ```
 
+#### Layout
+
+- StackPane: Places all nodes on top of each other in the center of the pane
+- FlowPane: Places the nodes row-by-row horizontally or col-by-col vertically
+- GridPane: Places the nodes ine the cells in a two-dimensional grid
+- BorderPane: Places the nodes in the top, right, bottom, left, and center regions
+- HBox: Places the nodes in a single row
+- VBox: PLaces the nodes in a single column
+
+> These get kind of complicated, so refer to the text book on these, as the notes would be far to extensive if I included them
+
+- Visual cheat sheet for panes:  
+![]( pane.png )
+
 ### Coordinates
 
 * The x-coordinate increases from left to right and the y-coordinate increases downward in the Java coordinate system. For a visual explanation:  
@@ -78,7 +92,7 @@ Scene scene = new Scene( pane, 200, 500 ); // measured in pixels
 ![](cord.png)
 
 * To place an object in the center of a pane, use: width/2 & height/2
-* An HBox is a plane that places all nodes in one row *( Think Horizontal Box )*
+* A pane's upper left corner is ( 0, 0 ) & its bottom-right corner is ( pane.getWidth(), pane.getHeight() )
 
 ### Property Binding
 
@@ -156,4 +170,40 @@ ImageView imageView = new ImageView( "pics/arrow.png" );
 // Also can use a URL
 Image image2 = new Image( "http://www.cs.armstrong.edu/liang/image/us.gif" );
 ```
+
+## Shapes
+
+- The Shape class is the abstract base class that defines the common properties for all shapes
+- Overall these are quite simple and straight forward, just have the notes here for future reference
+
+### Text
+
+- Overall pretty simple, here is an example:  
+```Java
+import javafx.scene.text.*;
+
+Pane pane = new Pane();
+Text text1 = new Text( 20, 20, "Hello World!" );
+pane.getChildren().add( text1 );
+```
+
+### Line
+
+- A line connects two points using four parameters: startX, startY, endX, and endY
+- Example of a line:  
+```Java
+Line line1 = new Line( 10, 10, 20, 20);
+```
+
+#### Misc
+
+-There are other shapes, can find how to use them in the text book. These shapes are: 
+  - Rectangle
+  - Cirlce
+  - Ellipse
+  - Arc
+  - Polygon
+  - Polyline
+
+
 
