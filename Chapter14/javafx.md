@@ -58,10 +58,7 @@ public class MyJavaFX extends Application {
 
 ### Panes
 
-> Panes are use to hold nodes which can be: shapes, images views, UI controls, and other panes.
-
-* The layout with a pane & nodes:  
-![](pane.png)  
+> Panes are use to hold nodes which can be: shapes, images views, UI controls, and other panes. 
 
 * You place nodes inside a pane and then places the plane into a cense ( like the above layout )
 * Here is an example of using a pane:  
