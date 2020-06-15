@@ -18,6 +18,6 @@ echo "[+] File pull complete"
 echo "[+] Moving to project folder.."
 cd /Users/student/Desktop/CSCI_1110_OOP_Coursework/ || { echo "[!] Error: directory not found"; exit 1; }
 pwd
-echo "[+] Checking git status.."
+echo "[+] Checking git status..."
 git status
-echo "[-] Need to add, commit, and pull to finalize..."
+echo "[-] Need to add, commit, and push to finalize..."
