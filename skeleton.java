@@ -1,5 +1,5 @@
-// Author: Travis Dowd
-// Date: _DATE
+// (c) Travis Dowd
+// (d) _DATE
 //
 //
 
