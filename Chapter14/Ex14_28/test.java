@@ -23,6 +23,9 @@ public class test extends Application {
 		Ex14_28.ClockPane clock = new Ex14_28.ClockPane();
 		int x = ( int )( Math.random() * ( 12 - 1 ));
 		int y = ( int )( Math.random() * ( 31 - 1 ));
+		if ( y % 2 == 0 ) {
+			y = 30;
+		} else { y = 0; }
 		clock.setHour( x );
 		clock.setMinute( y );
 		clock.setHourHandVisible( true );
