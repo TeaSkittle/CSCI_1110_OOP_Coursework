@@ -34,11 +34,11 @@ public class Untitled {
 				double b = Double.valueOf( base.pop() );
 				int index = operators.indexOf( t );
 				switch( index ){
-					case 0: base.push(String.valueOf( a + b )); break;
-					case 1: base.push(String.valueOf( b - a )); break;
-					case 2: base.push(String.valueOf( a * b )); break;
-					case 3: base.push(String.valueOf( b / a )); break;
-					case 4: base.push(String.valueOf(( Math.pow( b, a )))); break;
+					case 0: base.push( String.valueOf( a + b )); break;
+					case 1: base.push( String.valueOf( b - a )); break;
+					case 2: base.push( String.valueOf( a * b )); break;
+					case 3: base.push( String.valueOf( b / a )); break;
+					case 4: base.push( String.valueOf(( Math.pow( b, a )))); break;
 					case 5: break;  // (
 					case 6: break;  // )
 				}
