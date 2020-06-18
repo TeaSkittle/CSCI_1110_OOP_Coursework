@@ -1,8 +1,10 @@
 // (c) Travis Dowd
 // (d) 6-17-2020
 //
-// RPN calc ( with ints )
+// RPN calc
 // based off of: https://www.programcreek.com/2012/12/leetcode-evaluate-reverse-polish-notation/
+//
+// TODO: Implement parenthesis, have '(' create a new stack & ')' to end stack
 
 import java.util.Stack;
 import java.lang.Math;
@@ -14,35 +16,34 @@ public class Untitled {
 	}
 	public static void repl() {
 		try ( Scanner input = new Scanner( System.in )) {
-			String tokensStr = input.nextLine();
-			String[] tokens = new String[] { tokensStr };
-			System.out.println(tokens);
-			//String[] tokens = new String[] { "2", "1", "+", "3", "^" };
-			System.out.println(evalRPN(tokens));
+			String[] tokens = input.nextLine().split( " " );
+			System.out.println( rpn( tokens ));
 		} catch ( Exception e ) {
-			System.out.println("error");
-		}
+			System.out.println( "error" );
+		} 
 	}
-	public static int evalRPN(String[] tokens) throws java.lang.NumberFormatException {
+	public static double rpn( String[] tokens ) throws java.lang.NumberFormatException {
 		int returnValue = 0;
-		String operators = "+-*/^";
-		Stack<String> stack = new Stack<String>();
+		String operators = "+-*/^()";
+		Stack<String> base = new Stack<String>();
 		for(String t : tokens){
-			if(!operators.contains(t)){
-				stack.push(t);
+			if( !operators.contains( t )){
+				base.push( t );
 			} else {
-				int a = Integer.valueOf(stack.pop());
-				int b = Integer.valueOf(stack.pop());
-				int index = operators.indexOf(t);
-				switch(index){
-					case 0: stack.push(String.valueOf(a+b)); break;
-					case 1: stack.push(String.valueOf(b-a)); break;
-					case 2: stack.push(String.valueOf(a*b)); break;
-					case 3: stack.push(String.valueOf(b/a)); break;
-					case 4: stack.push(String.valueOf(((int)Math.pow(a, b)))); break;
+				double a = Double.valueOf( base.pop() );
+				double b = Double.valueOf( base.pop() );
+				int index = operators.indexOf( t );
+				switch( index ){
+					case 0: base.push(String.valueOf( a + b )); break;
+					case 1: base.push(String.valueOf( b - a )); break;
+					case 2: base.push(String.valueOf( a * b )); break;
+					case 3: base.push(String.valueOf( b / a )); break;
+					case 4: base.push(String.valueOf((( int )Math.pow( b, a )))); break;
+					case 5: break;  // (
+					case 6: break;  // )
 				}
 			}
 		}
-		return Integer.valueOf(stack.pop());
+		return Double.valueOf( base.pop() );
 	}
 }
