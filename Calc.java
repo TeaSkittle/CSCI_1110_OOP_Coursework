@@ -14,7 +14,7 @@ import java.lang.Math;
 import java.util.Scanner;
 
 public class Calc {
-	public static void main(String[] args) {
+	public static void main( String[] args ) {
 		repl();
 	}
 	public static void repl() {
@@ -29,7 +29,7 @@ public class Calc {
 		int returnValue = 0;
 		String operators = "+-*/^()";
 		Stack<String> base = new Stack<String>();
-		for(String t : tokens){
+		for( String t : tokens ){
 			if( !operators.contains( t )){
 				base.push( t );
 			} else {
