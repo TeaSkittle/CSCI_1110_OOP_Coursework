@@ -4,7 +4,10 @@
 // RPN calc
 // based off of: https://www.programcreek.com/2012/12/leetcode-evaluate-reverse-polish-notation/
 //
-// TODO: Implement parenthesis, have '(' create a new stack & ')' to end stack
+// TODO: 
+//        - Implement parenthesis, have '(' create a new stack & ')' to end stack
+//            - May do it already, just need to ignore ( & )
+//        - Have repl be an infinte while loop ( clear stack after each loop )
 
 import java.util.Stack;
 import java.lang.Math;
