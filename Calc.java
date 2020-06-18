@@ -10,7 +10,7 @@ import java.util.Stack;
 import java.lang.Math;
 import java.util.Scanner;
 
-public class Untitled {
+public class Calc {
 	public static void main(String[] args) {
 		repl();
 	}
