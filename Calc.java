@@ -2,9 +2,11 @@
 // (d) 6-17-2020
 //
 // RPN calc
-// based off of: https://www.programcreek.com/2012/12/leetcode-evaluate-reverse-polish-notation/
 //
+// based off of: https://www.programcreek.com/2012/12/leetcode-evaluate-reverse-polish-notation/
 // overview of stack based calc: https://medium.com/@eauditory3/what-are-stack-based-calculators-cf2dbe249264
+//
+// TODO: Add constructor methods ( to use in another project )
 
 import java.util.Stack;
 import java.lang.Math;
