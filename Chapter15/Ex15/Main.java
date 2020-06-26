@@ -6,7 +6,9 @@
 package Ex15;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.animation.PathTransition;
@@ -16,6 +18,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Polygon;
 import javafx.util.Duration;
 import javafx.animation.FadeTransition;
+
 
 public class Main extends Application {
     @Override
@@ -59,21 +62,20 @@ public class Main extends Application {
         ft.play();
 
         // Mouse action
-        pentagon.setOnMousePressed( e -> {
-            pt.pause();
-            ft.pause();
-        });
-        pentagon.setOnMouseReleased( e ->  {
-            pt.play();
-            ft.play();
-        });
-        rectangle.setOnMousePressed( e -> {
-            pt.pause();
-            ft.pause();
-        });
-        rectangle.setOnMouseReleased( e ->  {
-            pt.play();
-            ft.play();
+        final int[] clicks = { 0 };
+        pane.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle( MouseEvent e ) {
+                if ( clicks[ 0 ] == 0 ) {
+                    pt.pause();
+                    ft.pause();
+                    clicks[ 0 ]++;
+                } else if ( clicks[0] != 0 ){
+                    pt.play();
+                    ft.play();
+                    clicks[ 0 ]--;
+                }
+            }
         });
 
         // Scene
@@ -84,6 +86,6 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        launch(args);
+        launch( args );
     }
 }

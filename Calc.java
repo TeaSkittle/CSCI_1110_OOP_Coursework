@@ -13,20 +13,22 @@ import java.lang.Math;
 import java.util.Scanner;
 
 public class Calc {
-	public static void main( String[] args ) {
-		repl();
-	}
 	public static void repl() {
 		int run = 1;
 		try ( Scanner input = new Scanner( System.in )) {
 			while ( run > 0 ) {
 				System.out.print( "> " );
 				String[] tokens = input.nextLine().split( " " );
-				System.out.println( rpn( tokens ));
+				if ( tokens[0] == "q" ) {
+					System.out.println( "pass" );
+					run = 0;
+				} else {
+					System.out.println( rpn( tokens ));
+				}
 			}
 		} catch ( Exception e ) {
-			System.out.println( "error" );
 			run = 0;
+			System.out.println( "error" );
 		} 
 	}
 	public static double rpn( String[] tokens ) throws java.lang.NumberFormatException {
@@ -54,4 +56,8 @@ public class Calc {
 		stack.clear();
 		return returnValue;
 	}
+	public static void main( String[] args ) {
+		repl();
+	}
+	public Calc(){}
 }
