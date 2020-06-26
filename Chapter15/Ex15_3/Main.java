@@ -3,7 +3,7 @@
 //
 // Chapter 15, exercise 15
 
-package Ex15;
+package Ex15_3;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
