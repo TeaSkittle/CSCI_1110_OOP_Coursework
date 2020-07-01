@@ -1,7 +1,15 @@
+// (c) Travis Dowd
+// (d) 7-1-2020
+//
+// A simple text editor
+//
+// TODO: - add file chooser
+//       - Add emacs style binds
+//
+
 package Ed;
 
 import javafx.application.Application;
-import javafx.collections.ListChangeListener;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -12,19 +20,19 @@ public class Ed extends Application {
     public void start(Stage primaryStage) throws Exception{
         // Pane
         BorderPane pane = new BorderPane();
+
+        // Text input
         TextArea input = new TextArea();
-        TextArea lines = new TextArea();
-        lines.setPrefColumnCount( 1 );
-        lines.setEditable( false );
 
+        // Mode line
+        TextArea mode = new TextArea("mode line");
+        // Want to show file name, read & write permissions, and maybe line info
+        mode.setPrefRowCount( 1 );
+        mode.setEditable( false );
+
+        // Init
         pane.setCenter( input );
-        pane.setLeft( lines );
-
-        // Line Numbers
-        input.getParagraphs().addListener((ListChangeListener) ov -> {
-            String count = String.valueOf(input.getText().split("\n").length);
-            lines.appendText( count + "\n"  );
-        });
+        pane.setBottom( mode );
 
         // Stage
         Scene scene = new Scene( pane, 640, 480 );
