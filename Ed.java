@@ -17,7 +17,7 @@ import javafx.scene.control.TextArea;
 
 public class Ed extends Application {
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start( Stage primaryStage ) throws Exception{
         // Pane
         BorderPane pane = new BorderPane();
 
@@ -25,16 +25,15 @@ public class Ed extends Application {
         TextArea input = new TextArea();
 
         // Mode line
-        TextArea mode = new TextArea("mode line");
         // Want to show file name, read & write permissions, and maybe line info
+        // Also have ability to input commands
+        TextArea mode = new TextArea( "mode line" );
         mode.setPrefRowCount( 1 );
         mode.setEditable( false );
 
         // Init
         pane.setCenter( input );
         pane.setBottom( mode );
-
-        // Stage
         Scene scene = new Scene( pane, 640, 480 );
         primaryStage.setTitle( "Ed" );
         primaryStage.setScene( scene );
@@ -42,7 +41,7 @@ public class Ed extends Application {
     }
 
 
-    public static void main(String[] args) {
-        launch(args);
+    public static void main( String[] args ) {
+        launch( args );
     }
 }
