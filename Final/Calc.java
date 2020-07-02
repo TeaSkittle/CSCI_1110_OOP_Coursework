@@ -17,6 +17,11 @@ import java.lang.Math;
 import java.util.Scanner;
 
 public class Calc {
+	// Constructors
+	public Calc(){}
+	public Calc( String[] tokens ){
+		System.out.println( rpn( tokens ));
+	}
 	public static void repl() {
 		int run = 1;
 		try ( Scanner input = new Scanner( System.in )) {
@@ -60,11 +65,8 @@ public class Calc {
 		stack.clear();
 		return returnValue;
 	}
+	// Goes straight to repl if ran by itself
 	public static void main( String[] args ) {
 		repl();
-	}
-	public Calc(){}
-	public Calc( String[] tokens ){
-		System.out.println( rpn( tokens ));
 	}
 }
