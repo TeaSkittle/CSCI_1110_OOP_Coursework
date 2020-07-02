@@ -3,6 +3,8 @@
 //
 // A simple text editor
 //
+// TODO: - Add OS detection ( for opening & saving files )
+//
 
 package ed;
 
@@ -50,7 +52,7 @@ public class Ed extends Application {
         pane.setCenter( input );
         pane.setBottom( mode );
         Scene scene = new Scene( pane, 640, 480 );
-        scene.getStylesheets().add(getClass().getResource( "style.css" ).toExternalForm());
+        scene.getStylesheets().add( getClass().getResource( "style.css" ).toExternalForm());
         primaryStage.setTitle( "Ed" );
         primaryStage.setScene( scene );
         primaryStage.show();
