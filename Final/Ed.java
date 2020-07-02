@@ -3,9 +3,6 @@
 //
 // A simple text editor
 //
-// TODO: - add file chooser
-//       - Add emacs style binds
-//
 
 package ed;
 
@@ -23,22 +20,17 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.control.TextArea;
 import java.io.File;
-import java.awt.BorderLayout;
-import javax.swing.*;
-import javax.swing.event.*;
-import javax.swing.text.Position;
 
 public class Ed extends Application {
+    // Variables
+    public File file;
+    
     // Key combinations
     public KeyCombination altX = new KeyCodeCombination( KeyCode.X, KeyCombination.ALT_DOWN );
     public KeyCombination ctrlO = new KeyCodeCombination( KeyCode.O, KeyCombination.CONTROL_DOWN );
     public KeyCombination ctrlX = new KeyCodeCombination( KeyCode.X, KeyCombination.CONTROL_DOWN );
     public KeyCombination ctrlF = new KeyCodeCombination( KeyCode.F, KeyCombination.CONTROL_DOWN );
     public KeyCombination ctrlB = new KeyCodeCombination( KeyCode.B, KeyCombination.CONTROL_DOWN );
-
-
-    // Variables
-    public File file;
 
     @Override
     public void start( Stage primaryStage ) throws Exception{
@@ -58,17 +50,16 @@ public class Ed extends Application {
         pane.setCenter( input );
         pane.setBottom( mode );
         Scene scene = new Scene( pane, 640, 480 );
-        scene.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource( "style.css" ).toExternalForm());
         primaryStage.setTitle( "Ed" );
         primaryStage.setScene( scene );
         primaryStage.show();
         input.requestFocus();
-
         // ------------
         //   Controls
         // ------------
         // Input
-        input.setOnKeyPressed(new EventHandler<KeyEvent>() {
+        input.setOnKeyPressed( new EventHandler<KeyEvent>() {
             @Override
             public void handle( KeyEvent event ) {
                 // Switch to mode line
@@ -78,12 +69,12 @@ public class Ed extends Application {
                 }  // Open file
                 if ( ctrlO.match( event )) {
                     FileChooser openFileChooser = new FileChooser();
-                    openFileChooser.setInitialDirectory(new File("/Users/Student"));
+                    openFileChooser.setInitialDirectory( new File( "/Users/Student" ));
                     file = openFileChooser.showOpenDialog(primaryStage);
                 }  // Save file
                 if ( ctrlX.match( event )) {
                     FileChooser saveFileChooser = new FileChooser();
-                    saveFileChooser.setInitialDirectory(new File("/Users/Student"));
+                    saveFileChooser.setInitialDirectory( new File( "/Users/Student" ));
                     file = saveFileChooser.showSaveDialog( primaryStage );
                 } // Move Forward
                 if ( ctrlF.match( event )) {
@@ -100,11 +91,11 @@ public class Ed extends Application {
         // Mode Line
         mode.setOnKeyPressed( new EventHandler<KeyEvent>() {
             @Override
-            public void handle(KeyEvent event) {
+            public void handle( KeyEvent event ) {
                 if ( altX.match( event )) {
                     input.requestFocus();
                     mode.clear();
-                    mode.appendText("mode line");
+                    mode.appendText( "Pos: " + String.valueOf( input.getCaretPosition() ))
                 }
             }
         });
