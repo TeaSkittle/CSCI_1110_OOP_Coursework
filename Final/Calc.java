@@ -8,6 +8,8 @@
 //
 // TODO: - Add constructor methods ( to use in another project )
 //       - Add ability to call as one cammonds, and not use repl. Ex- Calc( "2 3 * 2 ^" );
+//       - Add factorial operator, ex - 5 ! = 120 ( https://www.programiz.com/c-programming/examples/factorial )
+//           - May have issues because it only uses one number ( maybe just push one number to stack )
 //
 
 import java.util.Stack;
@@ -62,4 +64,7 @@ public class Calc {
 		repl();
 	}
 	public Calc(){}
+	public Calc( String[] tokens ){
+		System.out.println( rpn( tokens ));
+	}
 }
