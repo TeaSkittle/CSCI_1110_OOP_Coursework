@@ -44,7 +44,7 @@ public class Calc {
 	}
 	public static double rpn( String[] tokens ) throws java.lang.NumberFormatException {
 		double returnValue = 0;
-		String operators = "+-*/^%!";
+		String operators = "+-*/^%!r";
 		Stack<String> stack = new Stack<String>();
 		for( String t : tokens ){
 			if( !operators.contains( t )){
@@ -67,6 +67,10 @@ public class Calc {
 							fact *= i;
 						} stack.push( String.valueOf( fact ));
 						break;
+					case 7:
+					    	stack.push( String.valueOf( b ));
+					    	stack.push( String.valueOf( Math.sqrt( a )));
+					    	break;
 				}
 			}
 		} returnValue =  Double.valueOf( stack.pop() );
