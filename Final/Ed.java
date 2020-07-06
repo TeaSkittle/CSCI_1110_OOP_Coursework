@@ -3,6 +3,9 @@
 //
 // A simple text editor
 //
+// TODO: - Add search feature using modeline to search
+//         - https://stackoverflow.com/a/42797402
+//       - Use mode.getText() to get input when switching to mode line( can be used for search above )
 
 package Final;
 
@@ -90,17 +93,17 @@ public class Ed extends Application {
                     saveFileChooser.setInitialDirectory( new File( dir ));
                     file = saveFileChooser.showSaveDialog( primaryStage );
                     try {
-				        filePath = file.getAbsolutePath();
-				        Stage primaryStage = ( Stage ) pane.getScene().getWindow();
-			        	BufferedWriter writer = new BufferedWriter( new FileWriter( file ));
-				        PrintWriter output = new PrintWriter( writer );
-				        output.write( input.getText() );
-				        output.flush();
-				        output.close();
-		    	    } catch ( IOException e ) {
-				        System.out.println( "[-]Error: " + file.getName() );
-			        }
-                } // Move Forward
+			filePath = file.getAbsolutePath();
+			Stage primaryStage = ( Stage ) pane.getScene().getWindow();
+			BufferedWriter writer = new BufferedWriter( new FileWriter( file ));
+			PrintWriter output = new PrintWriter( writer );
+			output.write( input.getText() );
+			output.flush();
+			output.close();
+		    } catch ( IOException e ) {
+			System.out.println( "[-]Error: " + file.getName() );
+		    }
+		} // Move Forward
                 if ( ctrlF.match( event )) {
                     input.positionCaret( input.getCaretPosition() + 1 );
                 } // Move Backwards
