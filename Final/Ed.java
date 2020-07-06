@@ -32,7 +32,7 @@ public class Main extends Application {
     // Key combinations
     public KeyCombination altX  = new KeyCodeCombination( KeyCode.X, KeyCombination.ALT_DOWN );
     public KeyCombination ctrlO = new KeyCodeCombination( KeyCode.O, KeyCombination.CONTROL_DOWN );
-    public KeyCombination ctrlX = new KeyCodeCombination( KeyCode.X, KeyCombination.CONTROL_DOWN );
+    public KeyCombination ctrlS = new KeyCodeCombination( KeyCode.S, KeyCombination.CONTROL_DOWN );
     public KeyCombination ctrlF = new KeyCodeCombination( KeyCode.F, KeyCombination.CONTROL_DOWN );
     public KeyCombination ctrlB = new KeyCodeCombination( KeyCode.B, KeyCombination.CONTROL_DOWN );
 
@@ -79,9 +79,9 @@ public class Main extends Application {
                 if ( ctrlO.match( event )) {
                     FileChooser openFileChooser = new FileChooser();
                     openFileChooser.setInitialDirectory( new File( dir ));
-                    file = openFileChooser.showOpenDialog(primaryStage);
+                    file = openFileChooser.showOpenDialog( primaryStage );
                 }  // Save file
-                if ( ctrlX.match( event )) {
+                if ( ctrlS.match( event )) {
                     FileChooser saveFileChooser = new FileChooser();
                     saveFileChooser.setInitialDirectory( new File( dir ));
                     file = saveFileChooser.showSaveDialog( primaryStage );
