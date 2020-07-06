@@ -65,7 +65,12 @@ public class Calc {
 					    	break;
 				}
 			}
-		} returnValue =  Double.valueOf( stack.pop() );
+		} try {
+		    Double.parseDouble( stack.peek() );
+		    returnValue =  Double.valueOf( stack.pop() );
+		} catch ( NumberFormatException e ) {
+		    System.out.print( "[-]Error: Unknown value " );
+		}
 		stack.clear();
 		return returnValue;
 	}
