@@ -8,18 +8,22 @@
 //
 
 package Final;
-
 import java.util.Stack;
 import java.lang.Math;
 import java.util.Scanner;
+import java.util.EmptyStackException;
 
-public class Calc {
+public class Main {
 	// Constructor
 	public Calc(){}
 	
 	// Caluclate an expression without the need for REPL loop
-	public double run( String[] tokens ){
-		return rpn( tokens );
+	public void run( String[] tokens ){
+		try { 
+			System.out.println( rpn( tokens ));
+		} catch ( EmptyStackException e ) {
+		    System.out.println( "[-]Error: Empty stack" );
+		}
 	}
 	// Loop and get input from user, use intereactively
 	public static void repl() {
@@ -28,15 +32,18 @@ public class Calc {
 			while ( run > 0 ) {
 				System.out.print( "> " );
 				String[] tokens = input.nextLine().split( " " );
-				System.out.println( rpn( tokens ));
+				try { 
+				    System.out.println( rpn( tokens ));
+				} catch ( EmptyStackException e ) {
+				    System.out.println( "[-]Error: Empty stack" );
+				}
 			}
-		} catch ( Exception e ) {
-			System.out.println( "error" );
-		} 
+		}
 	}
-	public static double rpn( String[] tokens ) throws java.lang.NumberFormatException {
+	
+	public static double rpn( String[] tokens ) throws EmptyStackException {
 		double returnValue = 0;
-		String operators = "+-*/^%!r";
+		String operators = "+-*/^%!rq";
 		Stack<String> stack = new Stack<String>();
 		for( String t : tokens ){
 			if( !operators.contains( t )){
@@ -63,6 +70,7 @@ public class Calc {
 					    	stack.push( String.valueOf( b ));
 					    	stack.push( String.valueOf( Math.sqrt( a )));
 					    	break;
+					case 8: System.exit(0); break;
 				}
 			}
 		} try {
