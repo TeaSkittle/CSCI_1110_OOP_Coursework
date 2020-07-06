@@ -3,11 +3,11 @@
 ## Calc
 
 This calculator is stack based and uses Reverse Polish Notation( RPN or Postfix notation ). It can do all sorts of calculations, but the syntax is different from what we are normally use to. For example in normal syntax ( infix ), a simple addition problem looks as such:
-```
+```Lisp
 12 + 7 = 17
 ```
 With RPN that is done like this:
-```
+```Lisp
 12 7 + = 17
 ```
 
