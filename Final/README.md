@@ -2,7 +2,7 @@
 
 ## Calc
 
-This calculator is stack based and uses Reverse Polish Notation( RPN or Postfix notation ). It can do all sorts of calculations, but the syntax is different from what we are normally use to. For example in normal syntax ( infix ), a simple addition problem looks as such:
+This is s stack based calculator designed for programmers which uses Reverse Polish Notation( RPN for short, also called: Postfix notation ). It can do all sorts of calculations, but the syntax is different from what we are normally use to. For example in normal syntax ( Infix ), a simple addition problem looks as such:
 ```Java
 12 + 7 = 17
 ```
@@ -11,7 +11,7 @@ With RPN that is done like this:
 12 7 + = 17
 ```
 
-It takes some time to get used to but you can do complex calcutaions even without the need to use parenthesis. A good example of its capabalities is converting Celcius to Fahrenheit. Here is an example converting 20°C to 68°F:
+It takes some time to get used to but you can do complex calcutaions even without the need to use parenthesis. A good example of its capabilities is converting Celcius to Fahrenheit. Here is an example converting 20°C to 68°F:
 ```Lisp
 Infix:
 ( 20 × 9/5 ) + 32 = 68
@@ -20,7 +20,7 @@ Postfix:
 20 9 5 / * 32 + = 68
 ```
 
-> Worth noting that this calculator handles both integers and floating pint numbers.
+> Worth noting that this calculator handles both integers and floating point numbers.
 
 ### Operators
 
