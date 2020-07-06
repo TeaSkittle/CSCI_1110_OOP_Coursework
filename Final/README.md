@@ -25,13 +25,13 @@ Postfix:
 ### Operators
 
 ```Lisp
-1. + : Addition
-2. - : Subtraction
-3. * : Multiplication
-4. / : Division
-5. ^ : Exponents
-6. % : Modulo
-7. ! : Factorial
++ Addition
+- Subtraction
+* Multiplication
+/ Division
+^ Exponents
+% Modulo
+! Factorial
 ```
 > Factorial if the only odd one here, the calcutalor expects atlteast two numbers and an operator, so if you only want to the facotial of one number place a 0 before( although this issue is not present if more than 1 number is given ). Here is an example of finding 10 factorial:
 
