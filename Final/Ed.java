@@ -85,7 +85,7 @@ public class Ed extends Application {
                     file = openFileChooser.showOpenDialog( primaryStage );
                     input.clear();
                     filePath = file.getAbsolutePath();
-				    Stage primaryStage = ( Stage ) pane.getScene().getWindow();
+		    Stage primaryStage = ( Stage ) pane.getScene().getWindow();
                     writeToInput();
                 }  // Save file
                 if ( ctrlS.match( event )) {
