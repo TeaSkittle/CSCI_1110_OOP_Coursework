@@ -6,7 +6,7 @@
 // TODO: - Add OS detection ( for opening & saving files )
 //
 
-package ed;
+package Final;
 
 import javafx.application.Application;
 import javafx.event.EventHandler;
