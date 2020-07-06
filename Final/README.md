@@ -103,3 +103,5 @@ System.out.println( calc.run( tokens ));
 // Call the interactive Read Eval Print Loop
 calc.repl();
 ```
+
+> To exit the REPL enter: 0 0 q
