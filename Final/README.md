@@ -24,7 +24,7 @@ Postfix:
 
 ### Operators
 
-```Lisp
+```Java
 + Addition
 - Subtraction
 * Multiplication
