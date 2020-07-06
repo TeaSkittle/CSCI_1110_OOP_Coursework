@@ -19,6 +19,7 @@ A simple text editor written in JavaFX.
 
 *Not Yet Implemented*
 - Shell like commands in mode line ( will need a whole new class here )
+- Working on Windows, Linux, Mac, & BSD
 
 ## Calc
 
