@@ -21,14 +21,14 @@ import javafx.stage.Stage;
 import javafx.scene.control.TextArea;
 import java.io.File;
 
-public class Main extends Application {
+public class Ed extends Application {
     // -------------
     //   Variables
     // -------------
     // System
     private File file;
-    private String os = System.getProperty("os.name");
-    private String dir = System.getProperty("user.dir");
+    private String os = System.getProperty( "os.name" );
+    private String dir = System.getProperty( "user.dir" );
     // Key combinations
     public KeyCombination altX  = new KeyCodeCombination( KeyCode.X, KeyCombination.ALT_DOWN );
     public KeyCombination ctrlO = new KeyCodeCombination( KeyCode.O, KeyCombination.CONTROL_DOWN );
@@ -80,11 +80,26 @@ public class Main extends Application {
                     FileChooser openFileChooser = new FileChooser();
                     openFileChooser.setInitialDirectory( new File( dir ));
                     file = openFileChooser.showOpenDialog( primaryStage );
+                    input.clear();
+                    filePath = file.getAbsolutePath();
+				    Stage primaryStage = ( Stage ) pane.getScene().getWindow();
+                    writeToInput();
                 }  // Save file
                 if ( ctrlS.match( event )) {
                     FileChooser saveFileChooser = new FileChooser();
                     saveFileChooser.setInitialDirectory( new File( dir ));
                     file = saveFileChooser.showSaveDialog( primaryStage );
+                    try {
+				        filePath = file.getAbsolutePath();
+				        Stage primaryStage = ( Stage ) pane.getScene().getWindow();
+			        	BufferedWriter writer = new BufferedWriter( new FileWriter( file ));
+				        PrintWriter output = new PrintWriter( writer );
+				        output.write( input.getText() );
+				        output.flush();
+				        output.close();
+		    	    } catch ( IOException e ) {
+				        System.out.println( "[-]Error: " + file.getName() );
+			        }
                 } // Move Forward
                 if ( ctrlF.match( event )) {
                     input.positionCaret( input.getCaretPosition() + 1 );
@@ -109,6 +124,23 @@ public class Main extends Application {
             }
         });
     }
+    
+    // -----------------
+    //   Write to file
+    // -----------------
+    // Slightly modified method from: https://github.com/mwaddo/TextEditor/blob/master/TextEditor/src/application/Controller.java
+    public void writeToInput() {
+		try {
+			Scanner reader = new Scanner( file );
+			while ( reader.hasNextLine() ) {
+				String current = reader.nextLine();
+				userText.appendText( current + "\n" );
+			}
+			reader.close();
+		} catch ( FileNotFoundException e ) {
+			System.out.println( "Could not read file: " + file.getName() );
+		}
+	}
 
     // Main
     public static void main( String[] args ) {
