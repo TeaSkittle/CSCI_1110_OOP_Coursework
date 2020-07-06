@@ -32,8 +32,9 @@ Postfix:
 ^ Exponents
 % Modulo
 ! Factorial
+r Square Root
 ```
-> Factorial if the only odd one here, the calcutalor expects atlteast two numbers and an operator, so if you only want to the facotial of one number place a 0 before( although this issue is not present if more than 1 number is given ). Here is an example of finding 10 factorial:
+> Factorial and sqyare roots are the odd ones here, the calcutalor expects atlteast two numbers and an operator, so if you only want to the facotial of one number place a 0 before( although this issue is not present if more than 1 number is given ). Here is an example of finding 10 factorial ( square roots work the same way ):
 
 ```Java
 // Will not work
@@ -80,6 +81,10 @@ Here are simple examples showcasing each operator
 // Factorial
 > 0 5 ! 
 24
+
+// Square Root
+> 0 25 r
+5
 ```
 
 ### Use in code
