@@ -97,7 +97,7 @@ public class Ed extends Application {
                 if ( altX.match( event )) {
                     input.requestFocus();
                     mode.clear();
-                    mode.appendText( "Pos: " + String.valueOf( input.getCaretPosition() ))
+                    mode.appendText( "Pos: " + String.valueOf( input.getCaretPosition() ));
                 }
             }
         });
