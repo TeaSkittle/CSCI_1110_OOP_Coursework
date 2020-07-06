@@ -28,15 +28,9 @@ public class Calc {
 			while ( run > 0 ) {
 				System.out.print( "> " );
 				String[] tokens = input.nextLine().split( " " );
-				if ( tokens[0] == "q" || tokens[0] == "quit" ) {
-					System.out.println( "pass" );
-					run = 0;
-				} else {
-					System.out.println( rpn( tokens ));
-				}
+				System.out.println( rpn( tokens ));
 			}
 		} catch ( Exception e ) {
-			//run = 0;
 			System.out.println( "error" );
 		} 
 	}
