@@ -1,5 +1,15 @@
 # Final
 
+## Ed
+
+A simple text editor written in JavaFX.
+
+### Features
+
+- Dark theme
+- Mode line
+- Keyboard shortcuts
+
 ## Calc
 
 This is s stack based calculator designed for programmers which uses Reverse Polish Notation( RPN for short, also called: Postfix notation ). It can do all sorts of calculations, but the syntax is different from what we are normally use to. For example in normal syntax ( Infix ), a simple addition problem looks as such:
