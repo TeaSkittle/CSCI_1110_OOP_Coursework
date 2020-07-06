@@ -51,34 +51,35 @@ error
 
 ### Examples
 
-Here is a simple example using each operator above
-1 . Addition
+Here are simple examples showcasing each operator  
 ```Java
-5 2 + = 7
-```
-2. Subtraction
-```Java
-10 2 - = 8
-```
-3. Multiplication
-```Java
-3 6 * = 18
-```
-4. Division
-```Java
-25 5 / = 5
-```
-5. Exponents
-```Java
-3 2 ^ = 9
-```
-6. Modulo
-```Java
-10 6 % = 4
-```
-7. Factorial
-```Java
-0 5 ! = 24
+// Addition
+> 5 2 +
+7
+
+// Subtraction
+> 10 2 -
+8
+
+// Multiplication
+> 3 6 * 
+18
+
+//. Division
+> 25 5 /
+5
+
+// Exponents
+> 3 2 ^ 
+9
+
+// Modulo
+> 10 6 % 
+4
+
+// Factorial
+> 0 5 ! 
+24
 ```
 
 ### Use in code
