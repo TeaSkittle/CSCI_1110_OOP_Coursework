@@ -52,7 +52,10 @@ error
 ### Examples
 
 Here is a simple example using each operator above
-1 . Addition: 5 2 + = 7
+1 . Addition
+```
+5 2 + = 7
+```
 2. Subtraction
 ```
 10 2 - = 8
