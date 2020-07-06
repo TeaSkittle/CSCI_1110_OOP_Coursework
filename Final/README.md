@@ -1,5 +1,9 @@
 # Final
 
+### Overview
+
+This project is a text ediotr with exrta features and programs built in, similar in comcept to emacs, but this is no emacs and is not meant to be a replacement for one. Simply I have always wanted to create a real text editor, and this is my contribution to the other thousands that are out there. I have already created a simple line-based editor ( influenced by the classic UNIX ed ) which was written in POSIX sh: [ ted ]( https://github.com/TeaSkittle/ted ).
+
 ## Ed
 
 A simple text editor written in JavaFX.
