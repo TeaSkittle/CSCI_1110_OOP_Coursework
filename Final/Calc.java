@@ -8,6 +8,7 @@
 //
 
 package Final;
+
 import java.util.Stack;
 import java.lang.Math;
 import java.util.Scanner;
@@ -17,6 +18,9 @@ public class Main {
 	// Constructor
 	public Calc(){}
 	
+	// -----------------------
+	//   Single Calculation
+	// -----------------------
 	// Caluclate an expression without the need for REPL loop
 	public void run( String[] tokens ){
 		try { 
@@ -25,6 +29,10 @@ public class Main {
 		    System.out.println( "[-]Error: Empty stack" );
 		}
 	}
+	
+	// ----------
+	//    REPL
+	// ----------
 	// Loop and get input from user, use intereactively
 	public static void repl() {
 		int run = 1;
@@ -41,6 +49,10 @@ public class Main {
 		}
 	}
 	
+	// -------------
+	//   RPN Logic
+	// -------------
+	// The core logic of the calculator
 	public static double rpn( String[] tokens ) throws EmptyStackException {
 		double returnValue = 0;
 		String operators = "+-*/^%!rq";
@@ -82,6 +94,7 @@ public class Main {
 		stack.clear();
 		return returnValue;
 	}
+	
 	// Goes straight to repl if ran by itself
 	public static void main( String[] args ) {
 		repl();
