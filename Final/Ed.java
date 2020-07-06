@@ -3,8 +3,6 @@
 //
 // A simple text editor
 //
-// TODO: - Add OS detection ( for opening & saving files )
-//
 
 package Final;
 
@@ -23,32 +21,40 @@ import javafx.stage.Stage;
 import javafx.scene.control.TextArea;
 import java.io.File;
 
-public class Ed extends Application {
-    // Variables
-    public File file;
-    
+public class Main extends Application {
+    // -------------
+    //   Variables
+    // -------------
+    // System
+    private File file;
+    private String os = System.getProperty("os.name");
+    private String dir = System.getProperty("user.dir");
     // Key combinations
-    public KeyCombination altX = new KeyCodeCombination( KeyCode.X, KeyCombination.ALT_DOWN );
+    public KeyCombination altX  = new KeyCodeCombination( KeyCode.X, KeyCombination.ALT_DOWN );
     public KeyCombination ctrlO = new KeyCodeCombination( KeyCode.O, KeyCombination.CONTROL_DOWN );
     public KeyCombination ctrlX = new KeyCodeCombination( KeyCode.X, KeyCombination.CONTROL_DOWN );
     public KeyCombination ctrlF = new KeyCodeCombination( KeyCode.F, KeyCombination.CONTROL_DOWN );
     public KeyCombination ctrlB = new KeyCodeCombination( KeyCode.B, KeyCombination.CONTROL_DOWN );
 
     @Override
-    public void start( Stage primaryStage ) throws Exception{
-        // Panes
-        BorderPane pane = new BorderPane();
-        // Areas
+    public void start( Stage primaryStage ) throws Exception {
+        // ---------
+        //   Input
+        //----------
         TextArea input = new TextArea();
-        TextArea mode = new TextArea( "Pos: ");
+        input.setEditable( true );
+        
         // ------------
         //  Mode Line
         // ------------
+        TextArea mode = new TextArea( "Pos: " );
         mode.setPrefRowCount( 1 );
         mode.setEditable( true );
+        
         // ----------
         //    Init
         // ----------
+        BorderPane pane = new BorderPane();
         pane.setCenter( input );
         pane.setBottom( mode );
         Scene scene = new Scene( pane, 640, 480 );
@@ -57,6 +63,7 @@ public class Ed extends Application {
         primaryStage.setScene( scene );
         primaryStage.show();
         input.requestFocus();
+        
         // ------------
         //   Controls
         // ------------
@@ -71,12 +78,12 @@ public class Ed extends Application {
                 }  // Open file
                 if ( ctrlO.match( event )) {
                     FileChooser openFileChooser = new FileChooser();
-                    openFileChooser.setInitialDirectory( new File( "/Users/Student" ));
+                    openFileChooser.setInitialDirectory( new File( dir ));
                     file = openFileChooser.showOpenDialog(primaryStage);
                 }  // Save file
                 if ( ctrlX.match( event )) {
                     FileChooser saveFileChooser = new FileChooser();
-                    saveFileChooser.setInitialDirectory( new File( "/Users/Student" ));
+                    saveFileChooser.setInitialDirectory( new File( dir ));
                     file = saveFileChooser.showSaveDialog( primaryStage );
                 } // Move Forward
                 if ( ctrlF.match( event )) {
@@ -103,6 +110,7 @@ public class Ed extends Application {
         });
     }
 
+    // Main
     public static void main( String[] args ) {
         launch( args );
     }
