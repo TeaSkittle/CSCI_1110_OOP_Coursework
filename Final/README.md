@@ -84,7 +84,7 @@ Here is a simple example using each operator above
 ### Use in code
 
 To use Calc.java in another project is quite simple, create with simple contructr and either call the REPL for interactive use, or call with String[] argument for a single calcutalation.
-```
+```Java
 // Create new Calc object
 Calc calc = new Calc();
 
