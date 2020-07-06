@@ -6,12 +6,12 @@ A simple text editor written in JavaFX.
 
 ### Features
 
- **Implemented**  
+ *Implemented*  
 - Dark theme
 - Mode line
 - Keyboard shortcuts
 
-**Not Yet Implemented**
+*Not Yet Implemented*
 - Shell like commands in mode line ( will need a whole new class here )
 
 ## Calc
