@@ -100,8 +100,9 @@ String[] tokens = new String[] { "2", "1", "+", "3", "*" };
 // Will print out calculation ( "9" in this example )
 System.out.println( calc.run( tokens ));
 
-// Call the interactive Read Eval Print Loop
+// Call the interactive Read Eval Print Loop ( REPL )
 calc.repl();
-```
 
-> To exit the REPL enter: 0 0 q
+// To exit the REPL, enter: 
+> 0 0 q
+```
