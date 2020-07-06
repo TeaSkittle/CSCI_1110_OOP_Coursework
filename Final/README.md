@@ -12,7 +12,7 @@ With RPN that is done like this:
 ```
 
 It takes some time to get used to but you can do complex calcutaions even without the need to use parenthesis. A good example of its capabalities is converting Celcius to Fahrenheit. Here is an example converting 20°C to 68°F:
-```
+```Lisp
 Infix:
 ( 20 × 9/5 ) + 32 = 68
 
