@@ -35,7 +35,7 @@ Postfix:
 ```
 > Factorial if the only odd one here, the calcutalor expects atlteast two numbers and an operator, so if you only want to the facotial of one number place a 0 before( although this issue is not present if more than 1 number is given ). Here is an example of finding 10 factorial:
 
-```
+```Lisp
 // Will not work
 > 10 !
 error
@@ -53,31 +53,31 @@ error
 
 Here is a simple example using each operator above
 1 . Addition
-```
+```Lisp
 5 2 + = 7
 ```
 2. Subtraction
-```
+```Lisp
 10 2 - = 8
 ```
 3. Multiplication
-```
+```Lisp
 3 6 * = 18
 ```
 4. Division
-```
+```Lisp
 25 5 / = 5
 ```
 5. Exponents
-```
+```Lisp
 3 2 ^ = 9
 ```
 6. Modulo
-```
+```Lisp
 10 6 % = 4
 ```
 7. Factorial
-```
+```Lisp
 0 5 ! = 24
 ```
 
