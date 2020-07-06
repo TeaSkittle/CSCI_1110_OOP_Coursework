@@ -12,7 +12,7 @@ With RPN that is done like this:
 ```
 
 It takes some time to get used to but you can do complex calcutaions even without the need to use parenthesis. A good example of its capabalities is converting Celcius to Fahrenheit. Here is an example converting 20°C to 68°F:
-```Lisp
+```Java
 Infix:
 ( 20 × 9/5 ) + 32 = 68
 
@@ -24,7 +24,7 @@ Postfix:
 
 ### Operators
 
-```
+```Java
 1. + : Addition
 2. - : Subtraction
 3. * : Multiplication
@@ -53,31 +53,31 @@ error
 
 Here is a simple example using each operator above
 1 . Addition
-```Lisp
+```Java
 5 2 + = 7
 ```
 2. Subtraction
-```Lisp
+```Java
 10 2 - = 8
 ```
 3. Multiplication
-```Lisp
+```Java
 3 6 * = 18
 ```
 4. Division
-```Lisp
+```Java
 25 5 / = 5
 ```
 5. Exponents
-```Lisp
+```Java
 3 2 ^ = 9
 ```
 6. Modulo
-```Lisp
+```Java
 10 6 % = 4
 ```
 7. Factorial
-```Lisp
+```Java
 0 5 ! = 24
 ```
 
