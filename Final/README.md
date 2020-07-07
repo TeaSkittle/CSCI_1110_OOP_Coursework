@@ -10,7 +10,7 @@ This project is a text editor with exrta features and programs built in, similar
 
 A simple text editor written in JavaFX.
 
-A HUGE thanks to https://github.com/mwaddo/TextEditor/, without this I would not have been able to figure out how to implement the opening and saving of files.
+> A HUGE thanks to https://github.com/mwaddo/TextEditor/, without this I would not have been able to figure out how to implement the opening and saving of files.
 
 ### Features
 
