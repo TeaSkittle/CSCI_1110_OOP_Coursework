@@ -22,7 +22,10 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.control.TextArea;
-import java.io.File;
+//import java.io.File;
+//import java.io.FileNotFoundException;
+import java.io.*;
+import java.util.Scanner;
 
 public class Ed extends Application {
     // -------------
@@ -32,6 +35,8 @@ public class Ed extends Application {
     private File file;
     private String os = System.getProperty( "os.name" );
     private String dir = System.getProperty( "user.dir" );
+    private String filePath;
+    TextArea input = new TextArea();
     // Key combinations
     public KeyCombination altX  = new KeyCodeCombination( KeyCode.X, KeyCombination.ALT_DOWN );
     public KeyCombination ctrlO = new KeyCodeCombination( KeyCode.O, KeyCombination.CONTROL_DOWN );
@@ -39,12 +44,13 @@ public class Ed extends Application {
     public KeyCombination ctrlF = new KeyCodeCombination( KeyCode.F, KeyCombination.CONTROL_DOWN );
     public KeyCombination ctrlB = new KeyCodeCombination( KeyCode.B, KeyCombination.CONTROL_DOWN );
 
+
     @Override
     public void start( Stage primaryStage ) throws Exception {
         // ---------
         //   Input
         //----------
-        TextArea input = new TextArea();
+        
         input.setEditable( true );
         
         // ------------
@@ -84,26 +90,28 @@ public class Ed extends Application {
                     openFileChooser.setInitialDirectory( new File( dir ));
                     file = openFileChooser.showOpenDialog( primaryStage );
                     input.clear();
-                    filePath = file.getAbsolutePath();
-		    Stage primaryStage = ( Stage ) pane.getScene().getWindow();
-                    writeToInput();
+                    if ( file != null ){
+                        filePath = file.getAbsolutePath();
+		                Stage primaryStage = ( Stage ) pane.getScene().getWindow();
+                        writeToInput();
+                    }
                 }  // Save file
                 if ( ctrlS.match( event )) {
                     FileChooser saveFileChooser = new FileChooser();
                     saveFileChooser.setInitialDirectory( new File( dir ));
                     file = saveFileChooser.showSaveDialog( primaryStage );
                     try {
-			filePath = file.getAbsolutePath();
-			Stage primaryStage = ( Stage ) pane.getScene().getWindow();
-			BufferedWriter writer = new BufferedWriter( new FileWriter( file ));
-			PrintWriter output = new PrintWriter( writer );
-			output.write( input.getText() );
-			output.flush();
-			output.close();
-		    } catch ( IOException e ) {
-			System.out.println( "[-]Error: " + file.getName() );
-		    }
-		} // Move Forward
+			            filePath = file.getAbsolutePath();
+			            Stage primaryStage = ( Stage ) pane.getScene().getWindow();
+			            BufferedWriter writer = new BufferedWriter( new FileWriter( file ));
+			            PrintWriter output = new PrintWriter( writer );
+			            output.write( input.getText() );
+			            output.flush();
+			            output.close();
+		            } catch ( IOException e ) {
+			            System.out.println( "[-]Error: " + file.getName() );
+                    }
+		        } // Move Forward
                 if ( ctrlF.match( event )) {
                     input.positionCaret( input.getCaretPosition() + 1 );
                 } // Move Backwards
@@ -137,7 +145,7 @@ public class Ed extends Application {
 			Scanner reader = new Scanner( file );
 			while ( reader.hasNextLine() ) {
 				String current = reader.nextLine();
-				userText.appendText( current + "\n" );
+				input.appendText( current + "\n" );
 			}
 			reader.close();
 		} catch ( FileNotFoundException e ) {
