@@ -1,7 +1,7 @@
 // (c) Travis Dowd
 // (d) 7-7-2020
 //
-//  Simple interpeter for shell like commands
+// Simple interpeter for shell like commands, designed mainly for use inside Ed.java inside the mode line
 //
 // https://www.freecodecamp.org/news/the-programming-language-pipeline-91d3f449c919/
 // 
