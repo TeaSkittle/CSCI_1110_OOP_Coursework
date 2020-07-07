@@ -16,8 +16,11 @@ import java.util.EmptyStackException;
 public class Shell {
     // --------
     //   REPL  
-    // --------
-	  public static void repl() {
+	// --------
+	//
+	// Read Eval Print Loop, a simple shell-like interpreter
+	//
+	public static void repl() {
 		int run = 1;
 		try ( Scanner input = new Scanner( System.in )) {
 			while ( run > 0 ) {
@@ -35,7 +38,12 @@ public class Shell {
     // --------
     //   Run
     // --------
+	//
     // Run a single command
+	// Example:
+	//   Shell.run( "calc 3 3 ^" );
+	//   output: 27
+	//
     public void run( String[] args ){
 		try { 
 			System.out.println( lexer( args ));
@@ -47,6 +55,12 @@ public class Shell {
     // ---------
     //   Lexer
     // ---------
+	//
+	// This method is the core logic for the commands, it splits the args array and run commands based on the first arg
+	// Example:
+	//    lexer( "print hello world!" );
+	//    output: hello world
+	//
     public static String[] lexer( String[] args ) throws EmptyStackException {
         if( args[ 0 ].equals( "print" )){
             for( int i = 1; i < args.length; i++ ){
@@ -58,7 +72,7 @@ public class Shell {
             for( int i = 1; i < args.length; i++){
                 list.add( args[ i ]);
             } 
-            // Print list for testing
+            // Print list out for testing
             System.out.println( list );
             //
             // Create new Calc Object:
@@ -78,6 +92,7 @@ public class Shell {
     // ----------
     public static String[] parser( String[] args ){
         // This doens't seem to be needed
+		// may be useful in the future though
         return args;
     }
     
