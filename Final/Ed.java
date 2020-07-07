@@ -22,6 +22,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import java.io.*;
 import java.util.Scanner;
 
@@ -37,7 +38,7 @@ public class Ed extends Application {
 	// JavaFX
     TextArea input = new TextArea();
     // Key combinations
-    public KeyCombination altX  = new KeyCodeCombination( KeyCode.X, KeyCombination.ALT_DOWN );
+    public KeyCombination ctrlX = new KeyCodeCombination( KeyCode.X, KeyCombination.CONTROL_DOWN );
     public KeyCombination ctrlO = new KeyCodeCombination( KeyCode.O, KeyCombination.CONTROL_DOWN );
     public KeyCombination ctrlS = new KeyCodeCombination( KeyCode.S, KeyCombination.CONTROL_DOWN );
     public KeyCombination ctrlF = new KeyCodeCombination( KeyCode.F, KeyCombination.CONTROL_DOWN );
@@ -53,8 +54,8 @@ public class Ed extends Application {
         // ------------
         //  Mode Line
         // ------------
-        TextArea mode = new TextArea( "Pos: " );
-        mode.setPrefRowCount( 1 );
+        TextField mode = new TextField();
+        mode.getStyleClass().add("mode");
         mode.setEditable( true );
         
         // ----------
@@ -78,9 +79,10 @@ public class Ed extends Application {
             @Override
             public void handle( KeyEvent event ) {
                 // Switch to mode line
-                if ( altX.match( event )) {
+                if ( ctrlX.match( event )) {
 					mode.clear();
                     mode.requestFocus();
+                    mode.clear();
                 }  // Open file
                 if ( ctrlO.match( event )) {
                     FileChooser openFileChooser = new FileChooser();
@@ -116,7 +118,7 @@ public class Ed extends Application {
                     input.positionCaret( input.getCaretPosition() - 1 );
                 } else {
                     mode.clear();
-                    mode.appendText( "Pos: " + String.valueOf( input.getCaretPosition() ));
+                    //mode.appendText( "Pos: " + String.valueOf( input.getCaretPosition() ));
                 }
             }
         });
@@ -124,10 +126,16 @@ public class Ed extends Application {
         mode.setOnKeyPressed( new EventHandler<KeyEvent>() {
             @Override
             public void handle( KeyEvent event ) {
-                if ( altX.match( event )) {
+                KeyCode kc = event.getCode();
+                if ( ctrlX.match( event )) {
                     mode.clear();
 					input.requestFocus();
-                    mode.appendText( "Pos: " + String.valueOf( input.getCaretPosition() ));
+                    //mode.appendText( "Pos: " + String.valueOf( input.getCaretPosition() ));
+                } if ( kc.equals( KeyCode.ENTER )) {
+                    String cmd = mode.getText();
+                    mode.clear();
+                    // Do something with a shell class like:
+                    // Shell( cmd );
                 }
             }
         });
