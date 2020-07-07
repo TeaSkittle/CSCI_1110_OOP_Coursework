@@ -22,8 +22,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.scene.control.TextArea;
-//import java.io.File;
-//import java.io.FileNotFoundException;
 import java.io.*;
 import java.util.Scanner;
 
@@ -33,9 +31,10 @@ public class Ed extends Application {
     // -------------
     // System
     private File file;
-    private String os = System.getProperty( "os.name" );
+    private String os = System.getProperty( "os.name" ); // May not be needed
     private String dir = System.getProperty( "user.dir" );
     private String filePath;
+	// JavaFX
     TextArea input = new TextArea();
     // Key combinations
     public KeyCombination altX  = new KeyCodeCombination( KeyCode.X, KeyCombination.ALT_DOWN );
@@ -44,13 +43,11 @@ public class Ed extends Application {
     public KeyCombination ctrlF = new KeyCodeCombination( KeyCode.F, KeyCombination.CONTROL_DOWN );
     public KeyCombination ctrlB = new KeyCodeCombination( KeyCode.B, KeyCombination.CONTROL_DOWN );
 
-
     @Override
     public void start( Stage primaryStage ) throws Exception {
         // ---------
         //   Input
         //----------
-        
         input.setEditable( true );
         
         // ------------
@@ -82,8 +79,8 @@ public class Ed extends Application {
             public void handle( KeyEvent event ) {
                 // Switch to mode line
                 if ( altX.match( event )) {
+					mode.clear();
                     mode.requestFocus();
-                    mode.clear();
                 }  // Open file
                 if ( ctrlO.match( event )) {
                     FileChooser openFileChooser = new FileChooser();
@@ -128,8 +125,8 @@ public class Ed extends Application {
             @Override
             public void handle( KeyEvent event ) {
                 if ( altX.match( event )) {
-                    input.requestFocus();
                     mode.clear();
+					input.requestFocus();
                     mode.appendText( "Pos: " + String.valueOf( input.getCaretPosition() ));
                 }
             }
