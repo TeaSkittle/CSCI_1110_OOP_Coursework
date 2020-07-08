@@ -14,7 +14,7 @@ import java.lang.Math;
 import java.util.Scanner;
 import java.util.EmptyStackException;
 
-public class Main {
+public class Calc {
 	// Constructor
 	public Calc(){}
 	
@@ -22,12 +22,13 @@ public class Main {
 	//   Single Calculation
 	// -----------------------
 	// Caluclate an expression without the need for REPL loop
-	public void run( String[] tokens ){
+	public double run( String[] tokens ){
 		try { 
-			System.out.println( rpn( tokens ));
+			//System.out.println( rpn( tokens ));
+			return rpn( tokens );
 		} catch ( EmptyStackException e ) {
 		    System.out.println( "[-]Error: Empty stack" );
-		}
+		} return 1;
 	}
 	
 	// ----------

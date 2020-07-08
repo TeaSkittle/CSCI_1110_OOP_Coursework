@@ -26,6 +26,7 @@ import javafx.scene.control.TextField;
 import java.io.*;
 import java.util.Scanner;
 
+
 public class Ed extends Application {
     // -------------
     //   Variables
@@ -35,8 +36,9 @@ public class Ed extends Application {
     private String os = System.getProperty( "os.name" ); // May not be needed
     private String dir = System.getProperty( "user.dir" );
     private String filePath;
-	// JavaFX
+    // JavaFX
     TextArea input = new TextArea();
+    TextField mode = new TextField();
     // Key combinations
     public KeyCombination ctrlX = new KeyCodeCombination( KeyCode.X, KeyCombination.CONTROL_DOWN );
     public KeyCombination ctrlO = new KeyCodeCombination( KeyCode.O, KeyCombination.CONTROL_DOWN );
@@ -54,7 +56,7 @@ public class Ed extends Application {
         // ------------
         //  Mode Line
         // ------------
-        TextField mode = new TextField();
+
         mode.getStyleClass().add("mode");
         mode.setEditable( true );
         
@@ -80,7 +82,7 @@ public class Ed extends Application {
             public void handle( KeyEvent event ) {
                 // Switch to mode line
                 if ( ctrlX.match( event )) {
-					mode.clear();
+                    mode.clear();
                     mode.requestFocus();
                     mode.clear();
                 }  // Open file
@@ -91,7 +93,7 @@ public class Ed extends Application {
                     input.clear();
                     if ( file != null ){
                         filePath = file.getAbsolutePath();
-		                Stage primaryStage = ( Stage ) pane.getScene().getWindow();
+                        Stage primaryStage = ( Stage ) pane.getScene().getWindow();
                         writeToInput();
                     }
                 }  // Save file
@@ -100,17 +102,17 @@ public class Ed extends Application {
                     saveFileChooser.setInitialDirectory( new File( dir )); // Need to test on windows
                     file = saveFileChooser.showSaveDialog( primaryStage );
                     try {
-			            filePath = file.getAbsolutePath();
-			            Stage primaryStage = ( Stage ) pane.getScene().getWindow();
-			            BufferedWriter writer = new BufferedWriter( new FileWriter( file ));
-			            PrintWriter output = new PrintWriter( writer );
-			            output.write( input.getText() );
-			            output.flush();
-			            output.close();
-		            } catch ( IOException e ) {
-			            System.out.println( "[-]Error: " + file.getName() );
+                        filePath = file.getAbsolutePath();
+                        Stage primaryStage = ( Stage ) pane.getScene().getWindow();
+                        BufferedWriter writer = new BufferedWriter( new FileWriter( file ));
+                        PrintWriter output = new PrintWriter( writer );
+                        output.write( input.getText() );
+                        output.flush();
+                        output.close();
+                    } catch ( IOException e ) {
+                        System.out.println( "[-]Error: " + file.getName() );
                     }
-		        } // Move Forward
+                } // Move Forward
                 if ( ctrlF.match( event )) {
                     input.positionCaret( input.getCaretPosition() + 1 );
                 } // Move Backwards
@@ -128,12 +130,14 @@ public class Ed extends Application {
                 KeyCode kc = event.getCode();
                 if ( ctrlX.match( event )) {
                     mode.clear();
-					input.requestFocus();
+                    input.requestFocus();
                 } if ( kc.equals( KeyCode.ENTER )) {
-                    String cmd = mode.getText();
+                    String str = mode.getText();
+                    String[] cmd = str.split(" ");
+                    Shell shell = new Shell();
+                    shell.run( cmd );
                     mode.clear();
-                    // Do something with a shell class like:
-                    // Shell( cmd );
+                    //mode.setText( shell.run( cmd ).toString());
                 }
             }
         });
@@ -143,19 +147,20 @@ public class Ed extends Application {
     //   Write to file
     // -----------------
     public void writeToInput() {
-		try {
-			Scanner reader = new Scanner( file );
-			while ( reader.hasNextLine() ) {
-				String current = reader.nextLine();
-				input.appendText( current + "\n" );
-			}
-			reader.close();
-		} catch ( FileNotFoundException e ) {
-			System.out.println( "Could not read file: " + file.getName() );
-		}
-	}
-
-    // Main
+        try {
+            Scanner reader = new Scanner( file );
+            while ( reader.hasNextLine() ) {
+                String current = reader.nextLine();
+                input.appendText( current + "\n" );
+            } reader.close();
+        } catch ( FileNotFoundException e ) {
+            System.out.println( "Could not read file: " + file.getName() );
+        }
+    }
+    
+    // --------
+    //   Main
+    // --------
     public static void main( String[] args ) {
         launch( args );
     }
