@@ -86,7 +86,7 @@ public class Ed extends Application {
                 }  // Open file
                 if ( ctrlO.match( event )) {
                     FileChooser openFileChooser = new FileChooser();
-                    openFileChooser.setInitialDirectory( new File( dir ));
+                    openFileChooser.setInitialDirectory( new File( dir )); // Need to test on windows
                     file = openFileChooser.showOpenDialog( primaryStage );
                     input.clear();
                     if ( file != null ){
@@ -97,7 +97,7 @@ public class Ed extends Application {
                 }  // Save file
                 if ( ctrlS.match( event )) {
                     FileChooser saveFileChooser = new FileChooser();
-                    saveFileChooser.setInitialDirectory( new File( dir ));
+                    saveFileChooser.setInitialDirectory( new File( dir )); // Need to test on windows
                     file = saveFileChooser.showSaveDialog( primaryStage );
                     try {
 			            filePath = file.getAbsolutePath();
@@ -118,7 +118,6 @@ public class Ed extends Application {
                     input.positionCaret( input.getCaretPosition() - 1 );
                 } else {
                     mode.clear();
-                    //mode.appendText( "Pos: " + String.valueOf( input.getCaretPosition() ));
                 }
             }
         });
@@ -130,7 +129,6 @@ public class Ed extends Application {
                 if ( ctrlX.match( event )) {
                     mode.clear();
 					input.requestFocus();
-                    //mode.appendText( "Pos: " + String.valueOf( input.getCaretPosition() ));
                 } if ( kc.equals( KeyCode.ENTER )) {
                     String cmd = mode.getText();
                     mode.clear();
@@ -162,4 +160,3 @@ public class Ed extends Application {
         launch( args );
     }
 }
-
