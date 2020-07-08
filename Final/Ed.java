@@ -56,7 +56,6 @@ public class Ed extends Application {
         // ------------
         //  Mode Line
         // ------------
-
         mode.getStyleClass().add("mode");
         mode.setEditable( true );
         
