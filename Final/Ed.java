@@ -144,7 +144,6 @@ public class Ed extends Application {
     // -----------------
     //   Write to file
     // -----------------
-    // Slightly modified method from: https://github.com/mwaddo/TextEditor/blob/master/TextEditor/src/application/Controller.java
     public void writeToInput() {
 		try {
 			Scanner reader = new Scanner( file );
