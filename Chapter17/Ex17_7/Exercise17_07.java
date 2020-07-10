@@ -11,7 +11,8 @@ package Ex17_7;
  *
  * @author rmazorow
  */
-import java.io.*;import javax.swing.*;
+import java.io.*;
+import javax.swing.*;
 
 
 public class Exercise17_07 {
@@ -36,12 +37,10 @@ public class Exercise17_07 {
     public static void outputData( File f ) throws ClassNotFoundException {
         try {
             ObjectInputStream input = new ObjectInputStream( new FileInputStream( f ));
-            //while( true ){
-                Loan newLoan = (Loan)input.readObject();
-                Loan newLoan2 = (Loan)input.readObject();
-                System.out.println( "Loan1 Ammount: "+ newLoan.getLoanAmount());
-                System.out.println( "Loan2 Ammount: " + newLoan2.getLoanAmount());
-            //}
+            Loan newLoan = (Loan)input.readObject();
+            Loan newLoan2 = (Loan)input.readObject();
+            System.out.println( "Loan1 Ammount: "+ newLoan.getLoanAmount());
+            System.out.println( "Loan2 Ammount: " + newLoan2.getLoanAmount());
         } catch ( EOFException ex ) {
             System.out.println( "[+]Reached EOF" );
         } catch ( IOException e ){
