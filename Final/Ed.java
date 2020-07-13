@@ -25,6 +25,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import java.io.*;
 import java.util.Scanner;
+import javafx.scene.control.TextAreaBuilder;
 
 
 public class Ed extends Application {
@@ -38,7 +39,6 @@ public class Ed extends Application {
     private String filePath;
     // JavaFX
     TextArea input = new TextArea();
-    TextField mode = new TextField();
     // Key combinations
     public KeyCombination ctrlX = new KeyCodeCombination( KeyCode.X, KeyCombination.CONTROL_DOWN );
     public KeyCombination ctrlO = new KeyCodeCombination( KeyCode.O, KeyCombination.CONTROL_DOWN );
@@ -56,8 +56,18 @@ public class Ed extends Application {
         // ------------
         //  Mode Line
         // ------------
+        TextArea mode = TextAreaBuilder.create()
+            .prefWidth( 640 )
+            .prefHeight( 3 )
+            .wrapText( false )
+            .build();
+        
         mode.getStyleClass().add("mode");
         mode.setEditable( true );
+        Shell shell = new Shell( mode );
+        PrintStream ps = new PrintStream( shell, true );
+        System.setOut( ps );
+        System.setErr( ps );
         
         // ----------
         //    Init
@@ -118,7 +128,7 @@ public class Ed extends Application {
                 if ( ctrlB.match( event )) {
                     input.positionCaret( input.getCaretPosition() - 1 );
                 } else {
-                    mode.clear();
+                    //mode.clear();
                 }
             }
         });
@@ -133,9 +143,8 @@ public class Ed extends Application {
                 } if ( kc.equals( KeyCode.ENTER )) {
                     String str = mode.getText();
                     String[] cmd = str.split(" ");
-                    Shell shell = new Shell();
                     shell.run( cmd );
-                    mode.clear();
+                    //mode.clear();
                     //mode.setText( shell.run( cmd ).toString());
                 }
             }

@@ -4,7 +4,9 @@
 // Simple interpeter for shell like commands, designed mainly for use inside Ed.java inside the mode line
 //
 // https://www.freecodecamp.org/news/the-programming-language-pipeline-91d3f449c919/
+// https://stackoverflow.com/questions/13841884/redirecting-system-out-to-a-textarea-in-javafx
 // 
+
 
 package Final;
 
@@ -13,10 +15,22 @@ import java.util.Stack;
 import java.util.Scanner;
 import java.util.EmptyStackException;
 import java.util.Arrays;
+import java.io.*;
 
-public class Shell {
-    // Constructor
+import javafx.scene.control.TextArea;
+
+public class Shell extends OutputStream {
+    private TextArea output;
+    // Constructors
     public Shell(){}
+    public Shell( TextArea ta ){
+        this.output = ta;
+    }
+    @Override
+    public void write( int i ) throws IOException
+    {
+        output.appendText( String.valueOf((char) i) );
+    }
     
     // --------
     //   REPL  
@@ -53,6 +67,7 @@ public class Shell {
         try { 
             //System.out.println( lexer( args ));
             //String[] cmd = args.split( "" );
+            output.clear();
             return lexer( args );
         } catch ( EmptyStackException e ) {
             System.out.println( "[-]Error: Empty stack" );
