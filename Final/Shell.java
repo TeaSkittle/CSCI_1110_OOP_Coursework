@@ -3,8 +3,9 @@
 //
 // Simple interpeter for shell like commands, designed mainly for use inside Ed.java inside the mode line
 //
-// https://www.freecodecamp.org/news/the-programming-language-pipeline-91d3f449c919/
-// https://stackoverflow.com/questions/13841884/redirecting-system-out-to-a-textarea-in-javafx
+// Thanks to the links for the guidance here:
+//     https://www.freecodecamp.org/news/the-programming-language-pipeline-91d3f449c919/
+//     https://stackoverflow.com/questions/13841884/redirecting-system-out-to-a-textarea-in-javafx
 // 
 
 
@@ -26,11 +27,6 @@ public class Shell extends OutputStream {
     public Shell( TextArea ta ){
         this.output = ta;
     }
-    @Override
-    public void write( int i ) throws IOException
-    {
-        output.appendText( String.valueOf((char) i) );
-    }
     
     // --------
     //   REPL  
@@ -44,7 +40,6 @@ public class Shell extends OutputStream {
             while ( run > 0 ) {
                 System.out.print( "> " );
                 String[] source = input.nextLine().split( " " );
-                //String  str = source.toString();
                 try { 
                     System.out.println( lexer( source ));
                 } catch ( EmptyStackException e ) {
@@ -65,8 +60,6 @@ public class Shell extends OutputStream {
     //
     public String[] run( String[] args ){
         try { 
-            //System.out.println( lexer( args ));
-            //String[] cmd = args.split( "" );
             output.clear();
             return lexer( args );
         } catch ( EmptyStackException e ) {
@@ -84,7 +77,6 @@ public class Shell extends OutputStream {
     //    output: hello world
     //
     public static String[] lexer( String[] args ) throws EmptyStackException {
-        //String[] args = cmd.split( "" );
         if( args[ 0 ].equals( "print" )){
             for( int i = 1; i < args.length; i++ ){
                 System.out.print( args[ i ] + " " );
@@ -109,18 +101,19 @@ public class Shell extends OutputStream {
     }
     
     // ----------
-    //   Parser
-    // ----------
-    public static String[] parser( String[] args ){
-        // This doens't seem to be needed
-        // may be useful in the future though
-        return args;
-    }
-    
-    // ----------
     //    Main
     // ----------
     public static void main( String[] args ) {
         repl();
+    }
+    
+    // --------
+    //   Misc
+    // --------
+    // Needs to be overriden, although I don't use it here
+    @Override
+    public void write( int i ) throws IOException
+    {
+        output.appendText( String.valueOf((char) i) );
     }
 }

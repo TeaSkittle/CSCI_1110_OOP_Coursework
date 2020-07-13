@@ -21,7 +21,7 @@ public class Calc {
 	// -----------------------
 	//   Single Calculation
 	// -----------------------
-	// Caluclate an expression without the need for REPL loop
+	// Caluclate an expression without the need for a REPL loop
 	public double run( String[] tokens ){
 		try { 
 			//System.out.println( rpn( tokens ));
@@ -42,9 +42,9 @@ public class Calc {
 				System.out.print( "> " );
 				String[] tokens = input.nextLine().split( " " );
 				try { 
-				    System.out.println( rpn( tokens ));
+					System.out.println( rpn( tokens ));
 				} catch ( EmptyStackException e ) {
-				    System.out.println( "[-]Error: Empty stack" );
+					System.out.println( "[-]Error: Empty stack" );
 				}
 			}
 		}
@@ -80,22 +80,25 @@ public class Calc {
 						} stack.push( String.valueOf( fact ));
 						break;
 					case 7:
-					    	stack.push( String.valueOf( b ));
-					    	stack.push( String.valueOf( Math.sqrt( a )));
-					    	break;
+						stack.push( String.valueOf( b ));
+						stack.push( String.valueOf( Math.sqrt( a )));
+						break;
 					case 8: System.exit(0); break;
 				}
 			}
 		} try {
-		    Double.parseDouble( stack.peek() );
-		    returnValue =  Double.valueOf( stack.pop() );
+			Double.parseDouble( stack.peek() );
+			returnValue =  Double.valueOf( stack.pop() );
 		} catch ( NumberFormatException e ) {
-		    System.out.print( "[-]Error: Unknown value " );
+			System.out.print( "[-]Error: Unknown value " );
 		}
 		stack.clear();
 		return returnValue;
 	}
 	
+	// --------
+	//   Main
+	// --------
 	// Goes straight to repl if ran by itself
 	public static void main( String[] args ) {
 		repl();

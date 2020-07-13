@@ -2,7 +2,7 @@
 
 ### Overview
 
-This project is a text editor with exrta features and programs built in, similar in comcept to emacs, but this is no emacs and is not meant to be a replacement for one. Simply I have always wanted to create a real text editor, and this is my contribution to the other thousands that are out there. I have already created a simple line-based editor ( influenced by the classic UNIX ed ) which was written in POSIX sh. Yuu can find the repo for that here: [ ted]( https://github.com/TeaSkittle/ted ). So this is my project is my take on writting a GUI editor with more features and that can be actaully useful from day-to-day. 
+This project is a text editor with exrta features and programs built in, similar in comcept to emacs, but this is no emacs and is not meant to be a replacement for one. Simply I have always wanted to create a real text editor, and this is my contribution to the other thousands that are out there. I have already created a simple line-based editor ( influenced by the classic UNIX ed ) which was written in POSIX sh. Yuu can find the repo for that here: [ted]( https://github.com/TeaSkittle/ted ). So this is my project is my take on writting a GUI editor with more features and that can be actaully useful from day-to-day. Inspired by the naming convention used in vim ( and due to the fact this is my second text editor ), I call this editor **tedi**, which is an ancronym for: **T**ravis' **ED**itor **I**mproved.
 
 > Although don't underestimate the power of line-based editors, as most of the UNIX core was written in ed! ( don't belive me, read this: http://www.catb.org/~esr/writings/taoup/html/ch13s02.html ).
 
@@ -10,6 +10,8 @@ This project is a text editor with exrta features and programs built in, similar
 
 - Split docs into several Markdown files
   - Maybe try using a GitHub wiki
+  
+---
 
 ## Ed
 
@@ -23,10 +25,33 @@ A simple text editor written in JavaFX.
 - Dark theme
 - Mode line
 - Keyboard shortcuts
+- Simple interperter in the bottom TextArea
 
 *Not Yet Implemented*
-- Shell like commands in mode line ( will need a whole new class here )
-- Working on Windows, Linux, Mac, & BSD
+- Working on Windows, Linux, Mac, & BSD ( need to test )
+
+### Shortcuts
+
+- C-x Switch to bottom TexArea and input commands( see *Shell* section below )
+- C-s Save as file
+- C-o Open file
+- C-f Move cursor forward one character
+- C-b Move cursor back one character
+
+> I want to add more functionality here, but JavaFX is limiting in what it can accomplish with text manipulation. If I want to make a more full fledged editor I would have to use something similar to [RichTextFX]( https://github.com/FXMisc/RichTextFX ), or avoid JavaFX all together.
+
+---
+
+## Shell
+
+This is a pretty simple interpreter designed to be used in the bottom TextArea of Ed. Only has a few commands, but can easily add more in the future.
+
+*Commands:*
+- print: prints all text after the command( similar to UNIX's echo )
+- calc: run a calculation in Calc.java( see section below )
+- quit: successfully exit the program
+
+---
 
 ## Calc
 

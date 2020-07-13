@@ -3,9 +3,7 @@
 //
 // A simple text editor
 //
-// TODO: - Add search feature using modeline to search
-//         - https://stackoverflow.com/a/42797402
-//       - Use mode.getText() to get input when switching to mode line( can be used for search above )
+
 
 package Final;
 
@@ -61,8 +59,6 @@ public class Ed extends Application {
             .prefHeight( 3 )
             .wrapText( false )
             .build();
-        
-        mode.getStyleClass().add("mode");
         mode.setEditable( true );
         Shell shell = new Shell( mode );
         PrintStream ps = new PrintStream( shell, true );
@@ -77,7 +73,7 @@ public class Ed extends Application {
         pane.setBottom( mode );
         Scene scene = new Scene( pane, 640, 480 );
         scene.getStylesheets().add( getClass().getResource( "style.css" ).toExternalForm());
-        primaryStage.setTitle( "Ed" );
+        primaryStage.setTitle( "tedi" );
         primaryStage.setScene( scene );
         primaryStage.show();
         input.requestFocus();
@@ -128,7 +124,7 @@ public class Ed extends Application {
                 if ( ctrlB.match( event )) {
                     input.positionCaret( input.getCaretPosition() - 1 );
                 } else {
-                    //mode.clear();
+                    mode.clear();
                 }
             }
         });
@@ -144,8 +140,6 @@ public class Ed extends Application {
                     String str = mode.getText();
                     String[] cmd = str.split(" ");
                     shell.run( cmd );
-                    //mode.clear();
-                    //mode.setText( shell.run( cmd ).toString());
                 }
             }
         });
