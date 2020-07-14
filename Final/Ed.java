@@ -4,7 +4,6 @@
 // A simple text editor
 //
 
-
 package Final;
 
 import javafx.application.Application;
@@ -24,7 +23,6 @@ import javafx.scene.control.TextField;
 import java.io.*;
 import java.util.Scanner;
 import javafx.scene.control.TextAreaBuilder;
-
 
 public class Ed extends Application {
     // -------------

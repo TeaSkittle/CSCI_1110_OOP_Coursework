@@ -39,6 +39,8 @@ A simple text editor written in JavaFX.
 - C-f Move cursor forward one character
 - C-b Move cursor back one character
 
+I included a simple "Hello World" java program that I wrote in this editor to be a simple proof of concept.
+
 > I want to add more functionality here, but JavaFX is limiting in what it can accomplish with text manipulation. If I want to make a more full fledged editor I would have to use something similar to [RichTextFX]( https://github.com/FXMisc/RichTextFX ), or avoid JavaFX all together.
 
 ---

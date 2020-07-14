@@ -1,0 +1,215 @@
+<h1>Final</h1>
+
+<h3>Overview</h3>
+
+<p>This project is a text editor with extra features and programs built in, similar in comcept to emacs, but this is no emacs and is not meant to be a replacement for one. Simply I have always wanted to create a real text editor, and this is my contribution to the other thousands that are out there. I have already created a simple line-based editor ( influenced by the classic UNIX ed ) which was written in POSIX sh. Yuu can find the repo for that here: <a href="https://github.com/TeaSkittle/ted">ted</a>. So this is my project is my take on writting a GUI editor with more features and that can be actaully useful from day-to-day. Inspired by the naming convention used in vim ( and due to the fact this is my second text editor ), I call this editor <strong>tedi</strong>, which is an ancronym for: <strong>T</strong>ravis' <strong>ED</strong>itor <strong>I</strong>mproved.</p>
+
+<blockquote>
+  <p>Although don't underestimate the power of line-based editors, as most of the UNIX core was written in ed! ( don't belive me, read this: http://www.catb.org/~esr/writings/taoup/html/ch13s02.html ).</p>
+</blockquote>
+
+<h3>TODO</h3>
+
+<ul>
+<li>Split docs into several Markdown files
+<ul>
+<li>Maybe try using a GitHub wiki</li>
+</ul></li>
+</ul>
+
+<hr />
+
+<h2>Ed</h2>
+
+<p>A simple text editor written in JavaFX.</p>
+
+<blockquote>
+  <p>A HUGE thanks to https://github.com/mwaddo/TextEditor/, without this I would not have been able to figure out how to implement the opening and saving of files.</p>
+</blockquote>
+
+<h3>Features</h3>
+
+<p><em>Implemented</em> <br />
+- Dark theme
+- Mode line
+- Keyboard shortcuts
+- Simple interperter in the bottom TextArea</p>
+
+<p><em>Not Yet Implemented</em>
+- Working on Windows, Linux, Mac, &amp; BSD ( need to test )</p>
+
+<h3>Shortcuts</h3>
+
+<p><em>C = Control</em>
+- C-x Switch to bottom TexArea and input commands( see <em>Shell</em> section below )
+- C-s Save as file
+- C-o Open file
+- C-f Move cursor forward one character
+- C-b Move cursor back one character</p>
+
+<p>I included a simple "Hello World" java program that I wrote in this editor to be a simple proof of concept.</p>
+
+<blockquote>
+  <p>I want to add more functionality here, but JavaFX is limiting in what it can accomplish with text manipulation. If I want to make a more full fledged editor I would have to use something similar to <a href="https://github.com/FXMisc/RichTextFX">RichTextFX</a>, or avoid JavaFX all together.</p>
+</blockquote>
+
+<hr />
+
+<h2>Shell</h2>
+
+<p>This is a pretty simple interpreter designed to be used in the bottom TextArea of Ed. Only has a few commands, but can easily add more in the future.</p>
+
+<p><em>Commands:</em>
+- print: prints all text after the command( similar to UNIX's echo )
+- calc: run a calculation in Calc.java( see section below )
+- quit: successfully exit the program</p>
+
+<hr />
+
+<h2>Calc</h2>
+
+<p>This is s stack based calculator designed for programmers which uses Reverse Polish Notation( RPN for short, also called: Postfix notation ). It can do all sorts of calculations, but the syntax is different from what we are normally use to. For example in normal syntax ( Infix ), a simple addition problem looks as such:
+<code>Java
+12 + 7 = 17
+</code>
+With RPN that is done like this:
+<code>Java
+12 7 + = 17
+</code></p>
+
+<p>It takes some time to get used to but you can do complex calcutaions even without the need to use parenthesis. A good example of its capabilities is converting Celcius to Fahrenheit. Here is an example converting 20°C to 68°F:
+```Lisp
+Infix:
+( 20 × 9/5 ) + 32 = 68</p>
+
+<p>Postfix:
+20 9 5 / * 32 + = 68
+```</p>
+
+<blockquote>
+  <p>Worth noting that this calculator handles both integers and floating point numbers.</p>
+</blockquote>
+
+<h3>Operators</h3>
+
+<p><code>Java
++ Addition
+- Subtraction
+* Multiplication
+/ Division
+^ Exponents
+% Modulo
+! Factorial
+r Square Root
+</code></p>
+
+<blockquote>
+  <p>Factorial and sqyare roots are the odd ones here, the calcutalor expects atlteast two numbers and an operator, so if you only want to the facotial of one number place a 0 before( although this issue is not present if more than 1 number is given ). Here is an example of finding 10 factorial ( square roots work the same way ):</p>
+</blockquote>
+
+<p>```Java
+// Will not work</p>
+
+<blockquote>
+  <p>10 !
+error</p>
+</blockquote>
+
+<p>// This works</p>
+
+<blockquote>
+  <p>0 10 !
+362880.0</p>
+</blockquote>
+
+<p>// No 0 needed if other values are present</p>
+
+<blockquote>
+  <p>2 10 ! *
+725760.0
+```</p>
+</blockquote>
+
+<h3>Examples</h3>
+
+<p>Here are simple examples showcasing each operator <br />
+```Java
+// Addition</p>
+
+<blockquote>
+  <p>5 2 +
+7</p>
+</blockquote>
+
+<p>// Subtraction</p>
+
+<blockquote>
+  <p>10 2 -
+8</p>
+</blockquote>
+
+<p>// Multiplication</p>
+
+<blockquote>
+  <p>3 6 * 
+18</p>
+</blockquote>
+
+<p>//. Division</p>
+
+<blockquote>
+  <p>25 5 /
+5</p>
+</blockquote>
+
+<p>// Exponents</p>
+
+<blockquote>
+  <p>3 2 ^ 
+9</p>
+</blockquote>
+
+<p>// Modulo</p>
+
+<blockquote>
+  <p>10 6 % 
+4</p>
+</blockquote>
+
+<p>// Factorial</p>
+
+<blockquote>
+  <p>0 5 ! 
+24</p>
+</blockquote>
+
+<p>// Square Root</p>
+
+<blockquote>
+  <p>0 25 r
+5
+```</p>
+</blockquote>
+
+<h3>Use in code</h3>
+
+<p>To use Calc.java in another project is quite simple, create with simple contructr and either call the REPL for interactive use, or call with String[] argument for a single calcutalation.
+```Java
+// Create new Calc object
+Calc calc = new Calc();</p>
+
+<p>// Create String[] to calculate
+String[] tokens = new String[] { "2", "1", "+", "3", "*" };</p>
+
+<p>// Will print out calculation ( "9" in this example )
+System.out.println( calc.run( tokens ));</p>
+
+<p>// Call the interactive Read Eval Print Loop ( REPL )
+calc.repl();</p>
+
+<p>// To exit the REPL, enter: </p>
+
+<blockquote>
+  <p>0 0 q
+```</p>
+</blockquote>
