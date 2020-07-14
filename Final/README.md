@@ -32,6 +32,7 @@ A simple text editor written in JavaFX.
 
 ### Shortcuts
 
+*C = Control*
 - C-x Switch to bottom TexArea and input commands( see *Shell* section below )
 - C-s Save as file
 - C-o Open file
