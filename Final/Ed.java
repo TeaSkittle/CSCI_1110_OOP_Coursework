@@ -79,12 +79,14 @@ public class Ed extends Application {
         // ------------
         //   Controls
         // ------------
-        // Input
+        //
+        // Control of keyboard shortcuts
+        //
+        // Input TextArea
         input.setOnKeyPressed( new EventHandler<KeyEvent>() {
             @Override
             public void handle( KeyEvent event ) {
-                // Switch to mode line
-                if ( ctrlX.match( event )) {
+                if ( ctrlX.match( event )) { // Switch to mode line
                     mode.clear();
                     mode.requestFocus();
                     mode.clear();
@@ -98,9 +100,8 @@ public class Ed extends Application {
                         filePath = file.getAbsolutePath();
                         Stage primaryStage = ( Stage ) pane.getScene().getWindow();
                         writeToInput();
-                    }
-                }  // Save file
-                if ( ctrlS.match( event )) {
+                    } // Save file
+                }  if ( ctrlS.match( event )) {
                     FileChooser saveFileChooser = new FileChooser();
                     saveFileChooser.setInitialDirectory( new File( dir )); // Need to test on windows
                     file = saveFileChooser.showSaveDialog( primaryStage );
@@ -114,9 +115,8 @@ public class Ed extends Application {
                         output.close();
                     } catch ( IOException e ) {
                         System.out.println( "[-]Error: " + file.getName() );
-                    }
-                } // Move Forward
-                if ( ctrlF.match( event )) {
+                    } // Move Forward
+                } if ( ctrlF.match( event )) {
                     input.positionCaret( input.getCaretPosition() + 1 );
                 } // Move Backwards
                 if ( ctrlB.match( event )) {
@@ -125,8 +125,7 @@ public class Ed extends Application {
                     mode.clear();
                 }
             }
-        });
-        // Mode Line
+        }); // Mode TextArea
         mode.setOnKeyPressed( new EventHandler<KeyEvent>() {
             @Override
             public void handle( KeyEvent event ) {
@@ -146,6 +145,9 @@ public class Ed extends Application {
     // -----------------
     //   Write to file
     // -----------------
+    //
+    // Write text from input TextArea to file
+    //
     public void writeToInput() {
         try {
             Scanner reader = new Scanner( file );

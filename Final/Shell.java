@@ -20,6 +20,7 @@ import java.io.*;
 import javafx.scene.control.TextArea;
 
 public class Shell extends OutputStream {
+    // JavaFX variable
     private TextArea output;
     // Constructors
     public Shell(){}
@@ -83,25 +84,25 @@ public class Shell extends OutputStream {
         } if ( args[ 0 ].equals( "calc" )){
             // Make List<String> from input
             List<String> list = new ArrayList<String>();
-            for( int i = 1; i < args.length; i++){
+            for( int i = 1; i < args.length; i++ ){
                 list.add( args[ i ]);
-            } 
-            // Make String[] from List<String>
+            } // Make String[] from List<String>
             String[] tokens = new String[ list.size() ];
             for( int i = 0; i < list.size(); i++ ){
                 tokens[ i ] = list.get( i );
-            }
-            Calc calc = new Calc();
+            } Calc calc = new Calc();
             System.out.println( calc.run( tokens ));
         } if ( args[ 0 ].equals( "quit" )) {
             System.exit( 0 );
-        }
-        return args;
+        } return args;
     }
     
     // ----------
     //    Main
     // ----------
+    //
+    // Goes straight to repl if ran by itself
+    //
     public static void main( String[] args ) {
         repl();
     }
@@ -109,10 +110,11 @@ public class Shell extends OutputStream {
     // --------
     //   Misc
     // --------
+    //
     // Needs to be overriden, although I don't use it here
+    //
     @Override
-    public void write( int i ) throws IOException
-    {
+    public void write( int i ) throws IOException {
         output.appendText( String.valueOf((char) i) );
     }
 }

@@ -21,20 +21,23 @@ public class Calc {
 	// -----------------------
 	//   Single Calculation
 	// -----------------------
+	//
 	// Caluclate an expression without the need for a REPL loop
+	//
 	public double run( String[] tokens ){
-		try { 
-			//System.out.println( rpn( tokens ));
+		try {
 			return rpn( tokens );
 		} catch ( EmptyStackException e ) {
-		    System.out.println( "[-]Error: Empty stack" );
+			System.out.println( "[-]Error: Empty stack" );
 		} return 1;
 	}
 	
 	// ----------
 	//    REPL
 	// ----------
+	//
 	// Loop and get input from user, use intereactively
+	//
 	public static void repl() {
 		int run = 1;
 		try ( Scanner input = new Scanner( System.in )) {
@@ -53,7 +56,9 @@ public class Calc {
 	// -------------
 	//   RPN Logic
 	// -------------
+	//
 	// The core logic of the calculator
+	//
 	public static double rpn( String[] tokens ) throws EmptyStackException {
 		double returnValue = 0;
 		String operators = "+-*/^%!rq";
@@ -99,7 +104,9 @@ public class Calc {
 	// --------
 	//   Main
 	// --------
+	//
 	// Goes straight to repl if ran by itself
+	//
 	public static void main( String[] args ) {
 		repl();
 	}
