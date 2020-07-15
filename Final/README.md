@@ -94,15 +94,15 @@ r Square Root
 
 ```Java
 // Will not work
-> 10 !
+calc 10 !
 error
 
 // This works
-> 0 10 !
+calc 0 10 !
 362880.0
 
 // No 0 needed if other values are present
-> 2 10 ! *
+calc 2 10 ! *
 725760.0
 ```
 
@@ -111,35 +111,35 @@ error
 Here are simple examples showcasing each operator  
 ```Java
 // Addition
-> 5 2 +
+calc 5 2 +
 7
 
 // Subtraction
-> 10 2 -
+calc 10 2 -
 8
 
 // Multiplication
-> 3 6 * 
+calc 3 6 * 
 18
 
 //. Division
-> 25 5 /
+calc 25 5 /
 5
 
 // Exponents
-> 3 2 ^ 
+calc 3 2 ^ 
 9
 
 // Modulo
-> 10 6 % 
+calc 10 6 % 
 4
 
 // Factorial
-> 0 5 ! 
+calc 0 5 ! 
 24
 
 // Square Root
-> 0 25 r
+calc 0 25 r
 5
 ```
 
@@ -160,5 +160,5 @@ System.out.println( calc.run( tokens ));
 calc.repl();
 
 // To exit the REPL, enter: 
-> 0 0 q
+calc 0 0 q
 ```
