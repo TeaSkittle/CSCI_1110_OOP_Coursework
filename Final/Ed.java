@@ -23,6 +23,7 @@ import javafx.scene.control.TextField;
 import java.io.*;
 import java.util.Scanner;
 import javafx.scene.control.TextAreaBuilder;
+import javafx.scene.control.TextFormatter.Change;
 
 public class Ed extends Application {
     // -------------
@@ -57,7 +58,8 @@ public class Ed extends Application {
             .prefHeight( 3 )
             .wrapText( false )
             .build();
-        mode.setEditable( true );
+        mode.setText("> ");
+        mode.setEditable( false );
         Shell shell = new Shell( mode );
         PrintStream ps = new PrintStream( shell, true );
         System.setOut( ps );
@@ -87,9 +89,11 @@ public class Ed extends Application {
             @Override
             public void handle( KeyEvent event ) {
                 if ( ctrlX.match( event )) { // Switch to mode line
-                    mode.clear();
                     mode.requestFocus();
+                    //mode.positionCaret( mode.getCaretPosition() + 3 );
                     mode.clear();
+                    mode.setEditable( true );
+                    input.setEditable( false );
                 }  // Open file
                 if ( ctrlO.match( event )) {
                     FileChooser openFileChooser = new FileChooser();
@@ -121,8 +125,6 @@ public class Ed extends Application {
                 } // Move Backwards
                 if ( ctrlB.match( event )) {
                     input.positionCaret( input.getCaretPosition() - 1 );
-                } else {
-                    mode.clear();
                 }
             }
         }); // Mode TextArea
@@ -131,8 +133,11 @@ public class Ed extends Application {
             public void handle( KeyEvent event ) {
                 KeyCode kc = event.getCode();
                 if ( ctrlX.match( event )) {
-                    mode.clear();
+                    //mode.clear();
+                    mode.setText( "> " );
                     input.requestFocus();
+                    mode.setEditable( false );
+                    input.setEditable( true );
                 } if ( kc.equals( KeyCode.ENTER )) {
                     String str = mode.getText();
                     String[] cmd = str.split(" ");

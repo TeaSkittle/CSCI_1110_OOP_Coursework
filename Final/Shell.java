@@ -115,6 +115,6 @@ public class Shell extends OutputStream {
     //
     @Override
     public void write( int i ) throws IOException {
-        output.appendText( String.valueOf((char) i) );
+        output.appendText( String.valueOf(( char ) i ));
     }
 }

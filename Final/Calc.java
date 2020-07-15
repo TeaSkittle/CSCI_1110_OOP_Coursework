@@ -96,8 +96,7 @@ public class Calc {
 			returnValue =  Double.valueOf( stack.pop() );
 		} catch ( NumberFormatException e ) {
 			System.out.print( "[-]Error: Unknown value " );
-		}
-		stack.clear();
+		} stack.clear();
 		return returnValue;
 	}
 	
